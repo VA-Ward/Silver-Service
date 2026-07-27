@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dry Cleaning &amp; Alterations in Sydney | Silver Service</title>
+<meta name="description" content="Dry cleaning, tailoring and curtain cleaning across Sydney since 2001. Four stores, pick-up and delivery, and 24-hour collection at Zetland.">
+<link rel="canonical" href="SITE_URL/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dry Cleaning &amp; Alterations in Sydney | Silver Service">
+<meta property="og:description" content="Dry cleaning, tailoring and curtain cleaning across Sydney since 2001. Four stores, pick-up and delivery, and 24-hour collection at Zetland.">
+<meta property="og:url" content="SITE_URL/">
+<meta property="og:image" content="SITE_URL/images/hero-pressed.webp">
+<meta property="og:locale" content="en_AU">
+<meta name="theme-color" content="#1B2A4A">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="images/hero-pressed.webp" fetchpriority="high">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+
+/* ------------------------------------------------------------------
+   Silver Service Dry Cleaners & Tailors
+   Direction 1 — Pressed & Precise (modern tailoring)
+   Signature: pressed-crease rules + garment-tag section labels
+------------------------------------------------------------------ */
+:root{
+  --navy:#1B2A4A;
+  --navy-deep:#0E1729;
+  --navy-mid:#2E446E;
+  --brass:#B08D57;
+  --brass-lift:#C9A874;
+  --brass-ink:#8A6A34;
+  --grey:#E6E8EC;
+  --paper:#F7F8FA;
+  --white:#fff;
+  --slate:#5A6478;
+  --line:rgba(27,42,74,.14);
+
+  --wrap:1180px;
+  --gut:clamp(20px,5vw,48px);
+  --sec:clamp(64px,9vw,120px);
+
+  --f:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --h1:clamp(2.15rem,6.1vw,4.35rem);
+  --h2:clamp(1.65rem,3.5vw,2.7rem);
+  --h3:clamp(1.12rem,1.7vw,1.4rem);
+  --tag:.688rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--white);color:var(--navy-deep);
+  font:400 clamp(1rem,.97rem + .18vw,1.075rem)/1.65 var(--f);
+  letter-spacing:-.005em;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.06;letter-spacing:-.028em}
+h1{font-size:var(--h1)}
+h2{font-size:var(--h2)}
+h3{font-size:var(--h3);letter-spacing:-.018em;line-height:1.2}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.sec{padding-block:var(--sec)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:12px 18px;z-index:100}
+.skip:focus{left:12px;top:12px}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+/* ---- signature 1: garment tag label ---- */
+.tag{
+  display:inline-flex;align-items:center;gap:.55em;
+  font-size:var(--tag);font-weight:600;text-transform:uppercase;
+  letter-spacing:.19em;color:var(--brass-ink);
+  padding:.42em .82em .42em .72em;margin-bottom:1.4em;
+  border:1px solid rgba(176,141,87,.42);
+  clip-path:polygon(9px 0,100% 0,100% 100%,9px 100%,0 50%);
+  padding-left:1.15em;
+}
+.tag::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brass-ink);flex:none}
+.on-navy .tag{color:var(--brass-lift);border-color:rgba(201,168,116,.45)}
+.on-navy .tag::before{background:var(--brass-lift)}
+
+/* ---- signature 2: pressed crease rule ---- */
+.crease{position:relative;height:1px;background:var(--line);border:0;margin:0}
+.crease::after{
+  content:"";position:absolute;left:0;top:-3px;width:74px;height:7px;
+  border-left:1px solid var(--brass);border-bottom:1px solid var(--brass);
+  transform:skewX(-38deg);transform-origin:left bottom;
+}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.hdr .row{display:flex;align-items:center;gap:clamp(16px,3vw,40px);min-height:70px}
+.mark{display:block;text-decoration:none;flex:none;line-height:1;padding-block:6px}
+.mark b{display:block;font-weight:700;font-size:1.06rem;letter-spacing:.13em;text-transform:uppercase}
+.mark span{display:block;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass-ink);margin-top:5px;font-weight:600}
+.nav{display:none;gap:26px;margin-left:auto;font-size:.9rem;font-weight:500}
+.nav a{text-decoration:none;color:var(--slate);display:inline-flex;align-items:center;min-height:44px;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--navy);border-bottom-color:var(--brass)}
+.hdr-act{display:flex;align-items:center;gap:14px;margin-left:auto}
+.nav + .hdr-act{margin-left:0}
+.tel{display:none;text-decoration:none;font-weight:600;font-size:.94rem;white-space:nowrap}
+.tel:hover{color:var(--brass)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  font:600 .94rem/1 var(--f);letter-spacing:.005em;text-decoration:none;cursor:pointer;
+  padding:14px 22px;border:1px solid var(--navy);background:var(--navy);color:#fff;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+.btn.brass{background:var(--brass);border-color:var(--brass);color:#10192b}
+.btn.brass:hover{background:var(--brass-lift);border-color:var(--brass-lift)}
+.btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn.ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn.sm{padding:14px 18px;font-size:.86rem;min-height:44px}
+
+/* ---------- hero ---------- */
+.hero{background:var(--navy-deep);color:#fff;overflow:hidden;position:relative}
+.hero-grid{display:grid;gap:clamp(30px,5vw,58px);align-items:center;padding-block:clamp(52px,8vw,96px)}
+.hero h1{margin-bottom:.62em}
+.hero h1 em{font-style:normal;color:var(--brass-lift);display:block}
+.hero .lede{font-size:clamp(1.04rem,1.5vw,1.2rem);color:#C6CEDC;max-width:33em;margin-bottom:1.9em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.7em}
+.promise{display:flex;gap:.7em;font-size:.9rem;color:#AEB9CC;max-width:31em;border-left:2px solid var(--brass);padding-left:1em;line-height:1.55}
+.hero-fig{position:relative}
+.hero-fig img{width:100%;height:auto;object-fit:cover;display:block}
+.hero-fig figcaption{
+  position:absolute;left:0;bottom:0;background:var(--navy-deep);color:var(--brass-lift);
+  font-size:var(--tag);font-weight:600;letter-spacing:.19em;text-transform:uppercase;padding:11px 16px;
+}
+
+/* ---------- trust strip ---------- */
+.trust{background:var(--navy);color:#fff;border-top:1px solid rgba(255,255,255,.1)}
+.trust ul{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;list-style:none;margin:0;padding:0;background:rgba(255,255,255,.13)}
+.trust li{background:var(--navy);padding:clamp(20px,3.4vw,30px) clamp(14px,2.4vw,26px)}
+.trust b{display:block;font-size:.98rem;font-weight:600;margin-bottom:5px;letter-spacing:-.01em}
+.trust span{display:block;font-size:.82rem;color:#A9B4C8;line-height:1.5}
+
+/* ---------- services ---------- */
+.head{max-width:47rem;margin-bottom:clamp(34px,5vw,58px);position:relative;
+  padding-bottom:clamp(22px,2.6vw,30px);border-bottom:1px solid var(--line)}
+.head p{color:var(--slate);font-size:1.06rem;margin-top:1em}
+.head::after{content:"";position:absolute;left:0;bottom:-3px;width:74px;height:7px;
+  border-left:1px solid var(--brass);border-bottom:1px solid var(--brass);
+  transform:skewX(-38deg);transform-origin:left bottom}
+.on-navy .head{border-bottom-color:rgba(255,255,255,.22)}
+.on-navy .head::after{border-color:var(--brass-lift)}
+.svc{display:grid;gap:clamp(22px,3vw,30px)}
+.card{border:1px solid var(--line);background:var(--white);display:flex;flex-direction:column}
+.card img{width:100%;height:auto;object-fit:cover;display:block}
+.card .body{padding:clamp(22px,2.6vw,30px);display:flex;flex-direction:column;flex:1}
+.card h3{margin-bottom:.6em}
+.card p{color:var(--slate);font-size:.965rem}
+.card .meta{
+  margin-top:auto;padding-top:1.15em;font-size:var(--tag);font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--brass-ink);border-top:1px solid var(--line);
+}
+.card.lead{grid-column:1/-1}
+@media(min-width:820px){
+  .card.lead{flex-direction:row;align-items:stretch}
+  .card.lead img{width:46%;aspect-ratio:auto !important;min-height:100%;object-fit:cover}
+  .card.lead .body{width:54%;justify-content:center;padding:clamp(30px,3.6vw,52px)}
+  .card.lead h3{font-size:clamp(1.5rem,2.3vw,2rem);letter-spacing:-.026em}
+  .card.lead p{font-size:1.04rem}
+}
+
+/* ---------- why ---------- */
+.why{background:var(--paper);border-block:1px solid var(--line)}
+.why-grid{display:grid;gap:clamp(34px,5vw,64px);align-items:start}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.pts li{padding:clamp(20px,2.6vw,26px) 0;border-top:1px solid var(--line)}
+.pts li:last-child{border-bottom:1px solid var(--line)}
+.pts h3{margin-bottom:.45em}
+.pts p{color:var(--slate);font-size:.965rem;max-width:40em}
+.quote{background:var(--navy);color:#fff;padding:clamp(26px,3.4vw,38px)}
+.quote blockquote{margin:0;font-size:clamp(1.12rem,1.9vw,1.42rem);line-height:1.35;font-weight:600;letter-spacing:-.02em}
+.quote cite{display:block;margin-top:1.2em;font-style:normal;font-size:.84rem;color:var(--brass-lift);letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.quote img{margin-top:clamp(22px,3vw,30px);width:100%;height:auto;object-fit:cover;display:block}
+
+/* ---------- steps (a real sequence, so numbered) ---------- */
+.steps{display:grid;gap:clamp(24px,3vw,34px);counter-reset:s}
+.steps li{list-style:none;counter-increment:s;border-top:2px solid var(--navy);padding-top:1.1em}
+.steps li::before{
+  content:counter(s,decimal-leading-zero);display:block;font-size:.8rem;font-weight:700;
+  letter-spacing:.16em;color:var(--brass-ink);margin-bottom:.85em;
+}
+.steps h3{margin-bottom:.45em}
+.steps p{color:var(--slate);font-size:.95rem}
+
+/* ---------- reviews ---------- */
+.rev{background:var(--navy-deep);color:#fff}
+.rev-grid{display:grid;gap:clamp(20px,2.6vw,28px)}
+.rev figure{margin:0;border:1px solid rgba(255,255,255,.17);padding:clamp(22px,2.6vw,30px);display:flex;flex-direction:column}
+.rev blockquote{margin:0 0 1.3em;font-size:1.02rem;line-height:1.55;color:#DCE2EC}
+.rev figcaption{margin-top:auto;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-lift);font-weight:600}
+.rev-foot{margin-top:clamp(28px,3.4vw,40px);display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:.92rem;color:#A9B4C8}
+
+/* ---------- stores ---------- */
+.stores{display:grid;gap:clamp(22px,3vw,30px)}
+.store{border:1px solid var(--line);padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column}
+.store h3{margin-bottom:.35em}
+.store .sub{font-size:var(--tag);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-ink);margin-bottom:1.1em}
+.store p{font-size:.95rem;color:var(--slate)}
+.store address{font-style:normal;font-size:.95rem;margin:0 0 1em;line-height:1.6}
+.store dl{margin:0 0 1.3em;font-size:.9rem;display:grid;grid-template-columns:auto 1fr;gap:.28em 1.1em}
+.store dt{color:var(--slate)}
+.store dd{margin:0;font-weight:500}
+.store .links{margin-top:auto;padding-top:1.2em;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.9rem;font-weight:600}
+.store .links a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px;
+  border-bottom:1px solid var(--brass);padding-bottom:2px}
+.store .links a:hover{color:var(--brass)}
+
+/* ---------- faq ---------- */
+.faq{background:var(--paper);border-block:1px solid var(--line)}
+.faq-list{max-width:60rem}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 46px clamp(18px,2.2vw,24px) 0;
+  position:relative;font-weight:600;font-size:clamp(1.02rem,1.5vw,1.14rem);letter-spacing:-.015em;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;
+  border-right:2px solid var(--brass);border-bottom:2px solid var(--brass);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.faq .ans{padding:0 0 clamp(20px,2.4vw,26px);color:var(--slate);max-width:52em;font-size:.99rem}
+.faq h3{font-size:inherit;font-weight:inherit;letter-spacing:inherit;display:inline}
+
+/* ---------- form ---------- */
+.book{background:var(--navy);color:#fff}
+.book-grid{display:grid;gap:clamp(34px,5vw,64px);align-items:start}
+.book .lede{color:#C6CEDC;font-size:1.04rem}
+.book ul{list-style:none;margin:1.7em 0 0;padding:0;display:grid;gap:.85em;font-size:.95rem;color:#C6CEDC}
+.book ul li{padding-left:1.6em;position:relative}
+.book ul li a{display:inline-block;padding-block:11px}
+.book ul li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:1px;background:var(--brass-lift)}
+form{background:var(--white);color:var(--navy-deep);padding:clamp(24px,3.2vw,38px)}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:.82rem;font-weight:600;letter-spacing:.06em;margin-bottom:7px}
+.field input,.field select{
+  width:100%;font:400 1rem/1.4 var(--f);color:var(--navy-deep);
+  padding:14px 14px;border:1px solid #C7CCD6;background:var(--white);border-radius:0;
+}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--brass) 50%),linear-gradient(135deg,var(--brass) 50%,transparent 50%);background-position:calc(100% - 21px) 21px,calc(100% - 15px) 21px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:44px}
+.field input:focus,.field select:focus{border-color:var(--navy);outline:2px solid var(--brass);outline-offset:1px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+form .btn{width:100%;padding:17px 20px;font-size:1rem;margin-top:6px}
+.fine{font-size:.82rem;color:var(--slate);margin-top:14px;line-height:1.55}
+.done{display:none;padding:clamp(24px,3.2vw,38px);background:var(--white);color:var(--navy-deep)}
+.done.on{display:block}
+.done h3{color:var(--navy);margin-bottom:.6em}
+.done p{color:var(--slate)}
+.err{display:none;margin-top:14px;font-size:.9rem;color:#8C2F39;font-weight:500}
+.err.on{display:block}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--navy-deep);color:#93A0B6;font-size:.9rem;padding-block:clamp(50px,6vw,74px) 0}
+.ftr h2{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-lift);margin-bottom:1.3em;font-weight:600}
+.ftr-grid{display:grid;gap:clamp(30px,4vw,44px)}
+.ftr address{font-style:normal;line-height:1.65;margin:0 0 1.35em}
+.ftr address a{display:inline-block;padding-block:11px}
+.ftr address b{display:block;color:#fff;font-weight:600;margin-bottom:2px}
+.ftr a{color:inherit;text-decoration:none}
+.ftr a:hover{color:var(--brass-lift)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:.2em}
+.ftr ul a{display:inline-flex;align-items:center;min-height:40px}
+.ftr .base{margin-top:clamp(38px,4.5vw,54px);border-top:1px solid rgba(255,255,255,.13);padding-block:24px 100px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.82rem}
+@media(min-width:760px){.ftr .base{padding-bottom:26px}}
+
+/* ---------- sticky mobile bar ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:rgba(255,255,255,.2);border-top:1px solid rgba(255,255,255,.2);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.bar a{
+  display:flex;align-items:center;justify-content:center;gap:.5em;padding:16px 10px;
+  text-decoration:none;font:600 .95rem/1 var(--f);background:var(--navy);color:#fff;
+}
+.bar a.b{background:var(--brass);color:#10192b}
+@media(min-width:760px){.bar{display:none}}
+body{padding-bottom:60px}
+@media(min-width:760px){body{padding-bottom:0}}
+
+/* ---------- breakpoints ---------- */
+@media(min-width:640px){
+  .trust ul{grid-template-columns:repeat(4,1fr)}
+  .svc,.stores,.rev-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:760px){
+  .tel{display:inline-block}
+}
+@media(min-width:960px){
+  .nav{display:flex}
+  .svc{grid-template-columns:repeat(6,1fr)}
+  .svc .card{grid-column:span 2}
+  .svc .card.lead{grid-column:1/-1}
+  .svc .card:nth-last-child(-n+2){grid-column:span 3}
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .why-grid{grid-template-columns:1.15fr .85fr}
+  .book-grid{grid-template-columns:.9fr 1.1fr}
+  .stores{grid-template-columns:repeat(4,1fr)}
+  .rev-grid{grid-template-columns:repeat(3,1fr)}
+  .ftr-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="hdr"><div class="wrap row"><a class="mark" href="#main" aria-label="Silver Service Dry Cleaners &amp; Tailors, home"><b>Silver Service</b><span>Dry Cleaners &amp; Tailors</span></a><nav class="nav" aria-label="Main"><a href="#services">Services</a><a href="#why">Why us</a><a href="#stores">Stores</a><a href="#faq">FAQ</a></nav><div class="hdr-act"><a class="tel" href="tel:+61298173557" data-tel>(02) 9817 3557</a><a class="btn sm" href="#book">Book a pickup</a></div></div></header>
+<main id="main">
+<section class="hero on-navy"><div class="wrap hero-grid"><div><span class="tag">Sydney · Since 2001</span><h1>Drop it and go.<em>Dry cleaning and tailoring across Sydney.</em></h1><p class="lede">Four stores, pick-up and delivery, and 24-hour collection at Zetland. Your clothes fit back around your day instead of taking a piece out of it.</p><div class="cta"><a class="btn brass" href="#book">Book a pickup</a><a class="btn ghost" href="tel:+61298173557" data-tel>Call (02) 9817 3557</a></div><p class="promise">Every item is cleaned, pressed and packed by the safest method for its fabric — guaranteed in writing by our director.</p></div><figure class="hero-fig"><img src="images/hero-pressed.webp" alt="Deep navy fabric falling in soft folds with one sharply pressed crease catching the light" style="aspect-ratio:16/11" fetchpriority="high" decoding="async"><figcaption>Pressed in-house</figcaption></figure></div></section>
+<section class="trust" aria-label="Why customers trust us"><div class="wrap"><ul><li><b>Since 2001</b><span>Twenty-five years, from one shop in Top Ryde to four Sydney stores</span></li><li><b>DIA member</b><span>Members of the Drycleaning Institute of Australia</span></li><li><b>Written guarantee</b><span>Signed by our director, Vivian Samaha</span></li><li><b>Cleaned in-house</b><span>Hydrocarbon, wet cleaning and hand finishing under our own roof</span></li></ul></div></section>
+<section class="sec" id="services"><div class="wrap"><div class="head"><span class="tag">What we do</span><h2>The things people can’t afford to get wrong</h2><p>A wedding gown, a set of curtains, a uniform roster or a suit that has to be right on Monday. Twenty-five years of doing exactly this, in our own plant, with our own people.</p></div><div class="svc"><article class="card lead"><img src="images/service-bridal.webp" alt="Ivory-toned folds of a fine gown fabric lit from one side" style="aspect-ratio:11/12" loading="lazy" decoding="async"><div class="body"><h3>Wedding gowns, eveningwear and delicates</h3><p>Cleaning, restoration and preservation through our bridal arm, Bridal Silver Service — more than twenty years in this one specialty. Sydney and Melbourne designers send us their clients, and their own sample garments. Beading, crystals and sequins are handled by hand where the fabric asks for it.</p><p>Complimentary pick-up and drop-off across most of Sydney, including collection from your honeymoon hotel, so the gown is sorted before you fly out.</p><p class="meta">Free pick-up &amp; drop-off · Workmanship guaranteed</p></div></article><article class="card"><img src="images/service-curtains.webp" alt="Long vertical pleats of curtain fabric in deep navy" style="aspect-ratio:4/3" loading="lazy" decoding="async"><div class="body"><h3>Curtains and window furnishings</h3><p>Dust, mould, allergens and dust mites live in the fabric you paid a small fortune for. We take them down dirty and bring them back in two days, with hook replacement and basic repairs handled while they’re with us. Worth doing every couple of years.</p><p class="meta">48-hour turnaround · Pick-up &amp; delivery</p></div></article><article class="card"><img src="images/service-corporate.webp" alt="Crisp diagonal fold of shirting fabric with a brass line of light" style="aspect-ratio:4/3" loading="lazy" decoding="async"><div class="body"><h3>Business shirts and corporate uniforms</h3><p>Shirts washed and pressed properly, so there’s always a clean one on the rail. For teams, we’ll build a valet run that collects, cleans, presses and returns uniforms on a schedule you set once and then forget about. Ask whether your business qualifies for our corporate rate.</p><p class="meta">Scheduled valet service · Corporate rates</p></div></article><article class="card"><img src="images/service-alterations.webp" alt="Tailored fabric folded to a sharp seam against a dark ground" style="aspect-ratio:4/3" loading="lazy" decoding="async"><div class="body"><h3>Alterations and tailoring</h3><p>We are tailors as well as cleaners. Hems up or down, zips, buttons, taking in and letting out, hem tape, hand stitching, knitwear repairs, beading and crystal work, and repairs to leather and suede. Bridal alterations too.</p><p class="meta">In every store · Fitted, not guessed</p></div></article><article class="card"><div class="body"><h3>Everyday dry cleaning</h3><p>Suits, business wear, eveningwear, silk, linen and cashmere, leather, suede and fur, ski wear and racing suits. Care labels are read and followed — and where a label and a fabric disagree, we go with what’s safest for the garment.</p><p class="meta">All four stores</p></div></article><article class="card"><div class="body"><h3>Bag wash, bedding and table linen</h3><p>Our bag wash is bulk washing, drying and folding with a machine given over to your bag alone — drop it in before work and collect it at the end of the day. We also press bedding and starch table linen to restaurant standard.</p><p class="meta">Same-machine bag wash · Linen pressing</p></div></article></div></div></section>
+<section class="sec why" id="why"><div class="wrap why-grid"><div><div class="head"><span class="tag">Why Silver Service</span><h2>Built around the hour you don’t have</h2></div><ul class="pts"><li><h3>The VIP bag: no queue, no counter</h3><p>Join the VIP program, pick up a $10 weatherproof express bag and after that it’s drop and go. Hand the bag over, tell a staff member when you need it, and we process the order, apply any current discount, charge the card on file and text you when it’s ready.</p></li><li><h3>24-hour collection at Zetland</h3><p>Our East Village store has a garment ATM, so drop-off and collection aren’t limited to trading hours. Handy if your day starts before we open and finishes after we close.</p></li><li><h3>Cleaning chosen for the fabric, not the machine</h3><p>Hydrocarbon cleaning is water-free, so nothing shrinks and colours hold. Wet cleaning uses biodegradable detergent with computer-controlled drying and finishing, far gentler than a domestic wash. The most delicate pieces are cleaned by hand. We also run on solar and recycle our water and hangers.</p></li><li><h3>A guarantee that’s honest about stains</h3><p>Your garments and furnishings will not be damaged by our process — that’s in writing. What we won’t promise is that every stain lifts. We’ll keep working on one for as long as there’s a safe way to improve it, and we’ll tell you straight when there isn’t.</p></li></ul></div><div class="quote"><blockquote>&ldquo;It all makes a difference to our children and families.&rdquo;</blockquote><cite>Vivian Samaha — Director &amp; founder, trading since 2001</cite><img src="images/craft-inhouse.webp" alt="Navy fabric under a single brass line of light on the pressing table" style="aspect-ratio:3/2" loading="lazy" decoding="async"></div></div></section>
+<section class="sec" id="how"><div class="wrap"><div class="head"><span class="tag">How it works</span><h2>Three steps, one text message</h2></div><ol class="steps"><li><h3>Book a pickup or drop in</h3><p>Send the form below and we’ll call to lock in a time, or walk into any of the four stores. Curtains and uniform runs are quoted before we start.</p></li><li><h3>We clean it the way the fabric asks</h3><p>Hydrocarbon, wet cleaning or by hand — chosen per garment, done in-house, then pressed and packed.</p></li><li><h3>You get a text when it’s ready</h3><p>Collect from the store, use the 24-hour garment ATM at Zetland, or have it delivered back if you’re on a pick-up and delivery run.</p></li></ol></div></section>
+<section class="sec rev" id="reviews"><div class="wrap on-navy"><div class="head"><span class="tag">In their words</span><h2 style="color:#fff">What customers actually mention</h2></div><div class="rev-grid"><figure><blockquote>They collect from my work and bring it back, which means one less errand at the end of a long day.</blockquote><figcaption>Jessica T.</figcaption></figure><figure><blockquote>Booking online and having it collected from our building’s concierge desk could not be easier.</blockquote><figcaption>Jenny G.</figcaption></figure><figure><blockquote>Quick turnaround and the best price I could find. It saves me time and money both.</blockquote><figcaption>Anthony P.</figcaption></figure></div><p class="rev-foot">Been in lately? <a class="btn ghost sm" href="REVIEW_LINK" rel="nofollow noopener">Leave us a Google review</a></p></div></section>
+<section class="sec" id="stores"><div class="wrap"><div class="head"><span class="tag">Four Sydney stores</span><h2>Find your local counter</h2><p>Each store has its own team, its own phone number and its own parking story. Alterations and everyday cleaning are available at all four.</p></div><div class="stores"><article class="store" id="barangaroo"><h3>Barangaroo</h3><p class="sub">The office run</p><address>Shop T2-17, Tower 2 Retail<br>Scotch Row, 200 Barangaroo Ave<br>Barangaroo NSW 2000</address><dl><dt>Mon–Fri</dt><dd>7:30am – 6:00pm</dd><dt>Sat–Sun</dt><dd>Closed</dd></dl><p>Doors open at half seven, so a suit can be dropped before the first meeting and collected on the way home. Convenient for Barangaroo, Wynyard, Walsh Bay, Millers Point and The Rocks.</p><p class="links"><a href="tel:+61292902606" data-tel>(02) 9290 2606</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Silver%20Service%20Dry%20Cleaners%20%26%20Tailors%2C%20Shop%20T2-17%2C%20Tower%202%20Retail%2C%20Scotch%20Row%2C%20200%20Barangaroo%20Ave%2C%20Barangaroo%20NSW%202000" rel="noopener">Directions</a></p></article><article class="store" id="drummoyne"><h3>Drummoyne</h3><p class="sub">Saturday trading</p><address>Shop 15, Odeon Building<br>50 Lyons Rd<br>Drummoyne NSW 2047</address><dl><dt>Mon–Fri</dt><dd>7:30am – 6:00pm</dd><dt>Sat</dt><dd>8:30am – 4:00pm</dd><dt>Sun</dt><dd>Closed</dd></dl><p>Park in the Marlborough Street open-air carpark — the shopfront faces the carpark, near the IGA, so it’s a short walk with an armful of curtains. Serving Drummoyne, Russell Lea, Rodd Point and Five Dock.</p><p class="links"><a href="tel:+61291815111" data-tel>(02) 9181 5111</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Silver%20Service%20Dry%20Cleaners%20%26%20Tailors%2C%20Shop%2015%2C%20Odeon%20Building%2C%2050%20Lyons%20Rd%2C%20Drummoyne%20NSW%202047" rel="noopener">Directions</a></p></article><article class="store" id="west-ryde"><h3>West Ryde</h3><p class="sub">Where it started</p><address>Shop 19, West Ryde Marketplace<br>Anthony Rd<br>West Ryde NSW 2114</address><dl><dt>Mon–Fri</dt><dd>7:30am – 6:00pm</dd><dt>Sat</dt><dd>8:00am – 4:00pm</dd><dt>Sun</dt><dd>Closed</dd></dl><p>The business began with one small shop in Top Ryde in 2001, and this is still home ground. Park in the Marketplace carpark. Serving West Ryde, Meadowbank, Denistone, Ryde and Eastwood.</p><p class="links"><a href="tel:+61298084488" data-tel>(02) 9808 4488</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Silver%20Service%20Dry%20Cleaners%20%26%20Tailors%2C%20Shop%2019%2C%20West%20Ryde%20Marketplace%2C%20Anthony%20Rd%2C%20West%20Ryde%20NSW%202114" rel="noopener">Directions</a></p></article><article class="store" id="zetland"><h3>Zetland</h3><p class="sub">Open seven days · 24-hour ATM</p><address>Shop 31A, East Village Shopping Centre<br>2–4 Defries Ave<br>Zetland NSW 2017</address><dl><dt>Mon–Wed</dt><dd>8:30am – 5:30pm</dd><dt>Thu</dt><dd>8:30am – 8:00pm</dd><dt>Fri</dt><dd>8:30am – 5:30pm</dd><dt>Sat</dt><dd>8:30am – 5:00pm</dd><dt>Sun</dt><dd>10:00am – 5:00pm</dd></dl><p>Our garment ATM here runs around the clock, so drop-off and collection aren’t tied to trading hours. Park in the East Village centre carpark. Serving Zetland, Green Square, Waterloo, Rosebery and Alexandria.</p><p class="links"><a href="tel:+61285996006" data-tel>(02) 8599 6006</a><a href="https://www.google.com/maps/search/?api=1&amp;query=Silver%20Service%20Dry%20Cleaners%20%26%20Tailors%2C%20Shop%2031A%2C%20East%20Village%20Shopping%20Centre%2C%202%E2%80%934%20Defries%20Ave%2C%20Zetland%20NSW%202017" rel="noopener">Directions</a></p></article></div></div></section>
+<section class="sec faq" id="faq"><div class="wrap"><div class="head"><span class="tag">Questions we get asked</span><h2>Straight answers</h2></div><div class="faq-list"><details><summary><h3>Where are your Sydney stores and when are you open?</h3></summary><div class="ans"><p>We have four stores: Barangaroo, Drummoyne, West Ryde and Zetland. Barangaroo, Drummoyne and West Ryde open at 7:30am on weekdays; Drummoyne and West Ryde also trade Saturday. Zetland is open seven days, with late trading on Thursday, and has a 24-hour garment ATM for after-hours drop-off and collection. Full addresses, phone numbers and hours are listed above.</p></div></details><details><summary><h3>How long does dry cleaning take?</h3></summary><div class="ans"><p>It depends on the garment and how busy the store is, so tell us when you need it and we’ll confirm at drop-off. Curtains and window furnishings come back in 48 hours. If something is urgent, ask about our VIP Express service.</p></div></details><details><summary><h3>Can I drop off or collect outside store hours?</h3></summary><div class="ans"><p>Yes, at Zetland. The East Village store has a 24-hour garment ATM, so you can drop off and collect whenever it suits you rather than working around trading hours.</p></div></details><details><summary><h3>Do you pick up and deliver?</h3></summary><div class="ans"><p>Yes. Curtains and window furnishings are collected and returned across most Sydney suburbs, and bridal work has complimentary pick-up and drop-off across most of Sydney. Businesses can set up a scheduled valet run for uniforms and workwear. Send the form and we’ll confirm whether your address is on a run.</p></div></details><details><summary><h3>Can you clean and preserve a wedding dress after the day?</h3></summary><div class="ans"><p>That’s a specialty. Our bridal arm, Bridal Silver Service, has spent more than twenty years cleaning, restoring and preserving bridal and eveningwear, and Sydney and Melbourne designers refer their clients to us. We can collect the gown from your honeymoon hotel so it’s handled before you fly out, and we guarantee our workmanship on the gown and its ornamentation.</p></div></details><details><summary><h3>How often should curtains be cleaned, and how long do they take?</h3></summary><div class="ans"><p>About every two years. Left longer, the dirt sets and becomes harder to remove, and over time it damages the fabric. Cleaning takes 48 hours, and we can replace hooks and handle basic repairs while they’re with us. Note that we can’t guarantee rubber backing — sun exposure and age break it down regardless of how gentle the method is.</p></div></details><details><summary><h3>Is your cleaning safe for beaded, sequinned or delicate garments?</h3></summary><div class="ans"><p>Yes. Hydrocarbon cleaning is water-free and gentler than traditional solvents, so there’s no shrinkage and no colour fade, and it leaves no odour. Wet cleaning uses biodegradable detergent with computer-controlled finishing. The most delicate pieces are cleaned by hand. We also repair beading and crystals in-house.</p></div></details><details><summary><h3>What happens if a stain won’t come out?</h3></summary><div class="ans"><p>We’ll keep working on it for as long as there’s a safe way to improve the item, and we’ll tell you honestly when there isn’t. Our guarantee is that your garments and furnishings won’t be damaged by our process — we won’t promise every stain lifts, because no cleaner can.</p></div></details><details><summary><h3>Do you do alterations as well as cleaning?</h3></summary><div class="ans"><p>We do — we’re tailors as well as dry cleaners. Hems, zips, buttons, taking in and letting out, hem tape, hand stitching, knitwear repairs, beading and crystal repair, leather and suede repairs, and bridal alterations. Bring the garment in and we’ll fit it properly rather than guessing.</p></div></details></div></div></section>
+<section class="sec book on-navy" id="book"><div class="wrap book-grid"><div><span class="tag">Book a pickup</span><h2 style="color:#fff">Tell us what needs doing</h2><p class="lede">Five quick details and we’ll call you back to confirm a time and a price. No obligation.</p><ul><li>Head office: <a href="tel:+61298173557" data-tel style="color:#fff">(02) 9817 3557</a></li><li><a href="mailto:info@silverservicedrycleaners.com.au" style="color:#fff">info@silverservicedrycleaners.com.au</a></li><li>Curtains, uniforms and bridal are quoted before we start</li></ul></div><div><form id="lead" novalidate><div class="field"><label for="name">Your name</label><input id="name" name="name" type="text" autocomplete="name" required></div><div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div><div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div><div class="field"><label for="service">What do you need?</label><select id="service" name="service" required><option value="">Choose a service</option><option>Wedding gown or eveningwear</option><option>Curtains or window furnishings</option><option>Business shirts or corporate uniforms</option><option>Alterations or tailoring</option><option>Everyday dry cleaning</option><option>Bag wash, bedding or table linen</option><option>Something else</option></select></div><div class="field"><label for="store">Nearest store</label><select id="store" name="store" required><option value="">Choose a store</option><option>Barangaroo</option><option>Drummoyne</option><option>West Ryde</option><option>Zetland</option><option>Not sure &mdash; I&rsquo;d like pick-up and delivery</option></select></div><div class="hp" aria-hidden="true"><label for="company">Company</label><input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div><button class="btn brass" type="submit">Book my pickup</button><p class="err" id="err" role="alert"></p><p class="fine">We only use these details to answer your enquiry. Prefer to talk? Call <a href="tel:+61298173557" data-tel>(02) 9817 3557</a>.</p></form><div class="done" id="done" role="status" aria-live="polite"><h3>Got it — thank you.</h3><p>We’ll call you back to confirm a time and a price. Our stores open at 7:30am on weekdays, so if you’ve sent this overnight you’ll hear from us in the morning.</p><p>Need it sooner? Call <a href="tel:+61298173557" data-tel><strong>(02) 9817 3557</strong></a>.</p></div></div></div></section>
+</main>
+<footer class="ftr"><div class="wrap"><div class="ftr-grid"><div><h2>Barangaroo</h2><address><b>Silver Service Dry Cleaners &amp; Tailors</b>Shop T2-17, Tower 2 Retail<br>Scotch Row, 200 Barangaroo Ave<br>Barangaroo NSW 2000<br><a href="tel:+61292902606" data-tel>(02) 9290 2606</a><br>Mon–Fri 7:30am – 6:00pm</address><h2>Drummoyne</h2><address><b>Silver Service Dry Cleaners &amp; Tailors</b>Shop 15, Odeon Building<br>50 Lyons Rd<br>Drummoyne NSW 2047<br><a href="tel:+61291815111" data-tel>(02) 9181 5111</a><br>Mon–Fri 7:30am – 6:00pm · Sat 8:30am – 4:00pm</address></div><div><h2>West Ryde</h2><address><b>Silver Service Dry Cleaners &amp; Tailors</b>Shop 19, West Ryde Marketplace<br>Anthony Rd<br>West Ryde NSW 2114<br><a href="tel:+61298084488" data-tel>(02) 9808 4488</a><br>Mon–Fri 7:30am – 6:00pm · Sat 8:00am – 4:00pm</address><h2>Zetland</h2><address><b>Silver Service Dry Cleaners &amp; Tailors</b>Shop 31A, East Village Shopping Centre<br>2–4 Defries Ave<br>Zetland NSW 2017<br><a href="tel:+61285996006" data-tel>(02) 8599 6006</a><br>Mon–Wed 8:30am – 5:30pm · Thu 8:30am – 8:00pm · Fri 8:30am – 5:30pm · Sat 8:30am – 5:00pm · Sun 10:00am – 5:00pm</address></div><div><h2>Services</h2><ul><li><a href="#services">Wedding gowns, eveningwear and delicates</a></li><li><a href="#services">Curtains and window furnishings</a></li><li><a href="#services">Business shirts and corporate uniforms</a></li><li><a href="#services">Alterations and tailoring</a></li><li><a href="#services">Everyday dry cleaning</a></li><li><a href="#services">Bag wash, bedding and table linen</a></li></ul></div><div><h2>Head office</h2><address>PO Box 266, Ryde NSW 1680<br><a href="tel:+61298173557" data-tel>(02) 9817 3557</a><br><a href="mailto:info@silverservicedrycleaners.com.au">info@silverservicedrycleaners.com.au</a></address><ul><li><a href="#book">Book a pickup</a></li><li><a href="#faq">Questions we get asked</a></li><li><a href="REVIEW_LINK" rel="nofollow noopener">Leave us a Google review</a></li></ul></div></div><div class="base"><span>&copy; <span id="yr">2026</span> Silver Service Dry Cleaners &amp; Tailors</span><span>Member, Drycleaning Institute of Australia</span><span>Cleaning and tailoring in Sydney since 2001</span></div></div></footer>
+<nav class="bar" aria-label="Quick actions"><a href="tel:+61298173557" data-tel>Call us</a><a class="b" href="#book">Book a pickup</a></nav>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "DryCleaningOrLaundry",
+      "@id": "SITE_URL/#barangaroo",
+      "name": "Silver Service Dry Cleaners & Tailors — Barangaroo",
+      "url": "SITE_URL/",
+      "telephone": "+61292902606",
+      "email": "info@silverservicedrycleaners.com.au",
+      "image": "SITE_URL/images/hero-pressed.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop T2-17, Tower 2 Retail, Scotch Row, 200 Barangaroo Ave",
+        "addressLocality": "Barangaroo",
+        "addressRegion": "NSW",
+        "postalCode": "2000",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.864523,
+        "longitude": 151.200265
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:30",
+          "closes": "18:00"
+        }
+      ],
+      "areaServed": [
+        "Barangaroo",
+        "Wynyard",
+        "Millers Point",
+        "Walsh Bay",
+        "The Rocks",
+        "Sydney CBD"
+      ],
+      "foundingDate": "2001",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wedding gowns, eveningwear and delicates"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Curtains and window furnishings"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business shirts and corporate uniforms"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Alterations and tailoring"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Everyday dry cleaning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bag wash, bedding and table linen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "DryCleaningOrLaundry",
+      "@id": "SITE_URL/#drummoyne",
+      "name": "Silver Service Dry Cleaners & Tailors — Drummoyne",
+      "url": "SITE_URL/",
+      "telephone": "+61291815111",
+      "email": "info@silverservicedrycleaners.com.au",
+      "image": "SITE_URL/images/hero-pressed.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop 15, Odeon Building, 50 Lyons Rd",
+        "addressLocality": "Drummoyne",
+        "addressRegion": "NSW",
+        "postalCode": "2047",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.85095,
+        "longitude": 151.151702
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:30",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:30",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": [
+        "Drummoyne",
+        "Russell Lea",
+        "Rodd Point",
+        "Five Dock",
+        "Birchgrove"
+      ],
+      "foundingDate": "2001",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wedding gowns, eveningwear and delicates"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Curtains and window furnishings"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business shirts and corporate uniforms"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Alterations and tailoring"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Everyday dry cleaning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bag wash, bedding and table linen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "DryCleaningOrLaundry",
+      "@id": "SITE_URL/#west-ryde",
+      "name": "Silver Service Dry Cleaners & Tailors — West Ryde",
+      "url": "SITE_URL/",
+      "telephone": "+61298084488",
+      "email": "info@silverservicedrycleaners.com.au",
+      "image": "SITE_URL/images/hero-pressed.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop 19, West Ryde Marketplace, Anthony Rd",
+        "addressLocality": "West Ryde",
+        "addressRegion": "NSW",
+        "postalCode": "2114",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.806346,
+        "longitude": 151.086169
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday"
+          ],
+          "opens": "07:30",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:00",
+          "closes": "16:00"
+        }
+      ],
+      "areaServed": [
+        "West Ryde",
+        "Meadowbank",
+        "Denistone",
+        "Ryde",
+        "Eastwood"
+      ],
+      "foundingDate": "2001",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wedding gowns, eveningwear and delicates"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Curtains and window furnishings"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business shirts and corporate uniforms"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Alterations and tailoring"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Everyday dry cleaning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bag wash, bedding and table linen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "DryCleaningOrLaundry",
+      "@id": "SITE_URL/#zetland",
+      "name": "Silver Service Dry Cleaners & Tailors — Zetland",
+      "url": "SITE_URL/",
+      "telephone": "+61285996006",
+      "email": "info@silverservicedrycleaners.com.au",
+      "image": "SITE_URL/images/hero-pressed.webp",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Shop 31A, East Village Shopping Centre, 2–4 Defries Ave",
+        "addressLocality": "Zetland",
+        "addressRegion": "NSW",
+        "postalCode": "2017",
+        "addressCountry": "AU"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -33.90527,
+        "longitude": 151.2109
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday"
+          ],
+          "opens": "08:30",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Thursday",
+          "opens": "08:30",
+          "closes": "20:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Friday",
+          "opens": "08:30",
+          "closes": "17:30"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "08:30",
+          "closes": "17:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "10:00",
+          "closes": "17:00"
+        }
+      ],
+      "areaServed": [
+        "Zetland",
+        "Green Square",
+        "Waterloo",
+        "Rosebery",
+        "Alexandria"
+      ],
+      "foundingDate": "2001",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wedding gowns, eveningwear and delicates"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Curtains and window furnishings"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Business shirts and corporate uniforms"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Alterations and tailoring"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Everyday dry cleaning"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Bag wash, bedding and table linen"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "SITE_URL/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Where are your Sydney stores and when are you open?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We have four stores: Barangaroo, Drummoyne, West Ryde and Zetland. Barangaroo, Drummoyne and West Ryde open at 7:30am on weekdays; Drummoyne and West Ryde also trade Saturday. Zetland is open seven days, with late trading on Thursday, and has a 24-hour garment ATM for after-hours drop-off and collection. Full addresses, phone numbers and hours are listed above."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long does dry cleaning take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It depends on the garment and how busy the store is, so tell us when you need it and we’ll confirm at drop-off. Curtains and window furnishings come back in 48 hours. If something is urgent, ask about our VIP Express service."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I drop off or collect outside store hours?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, at Zetland. The East Village store has a 24-hour garment ATM, so you can drop off and collect whenever it suits you rather than working around trading hours."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you pick up and deliver?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Curtains and window furnishings are collected and returned across most Sydney suburbs, and bridal work has complimentary pick-up and drop-off across most of Sydney. Businesses can set up a scheduled valet run for uniforms and workwear. Send the form and we’ll confirm whether your address is on a run."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can you clean and preserve a wedding dress after the day?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "That’s a specialty. Our bridal arm, Bridal Silver Service, has spent more than twenty years cleaning, restoring and preserving bridal and eveningwear, and Sydney and Melbourne designers refer their clients to us. We can collect the gown from your honeymoon hotel so it’s handled before you fly out, and we guarantee our workmanship on the gown and its ornamentation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How often should curtains be cleaned, and how long do they take?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "About every two years. Left longer, the dirt sets and becomes harder to remove, and over time it damages the fabric. Cleaning takes 48 hours, and we can replace hooks and handle basic repairs while they’re with us. Note that we can’t guarantee rubber backing — sun exposure and age break it down regardless of how gentle the method is."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is your cleaning safe for beaded, sequinned or delicate garments?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. Hydrocarbon cleaning is water-free and gentler than traditional solvents, so there’s no shrinkage and no colour fade, and it leaves no odour. Wet cleaning uses biodegradable detergent with computer-controlled finishing. The most delicate pieces are cleaned by hand. We also repair beading and crystals in-house."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What happens if a stain won’t come out?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We’ll keep working on it for as long as there’s a safe way to improve the item, and we’ll tell you honestly when there isn’t. Our guarantee is that your garments and furnishings won’t be damaged by our process — we won’t promise every stain lifts, because no cleaner can."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do you do alterations as well as cleaning?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "We do — we’re tailors as well as dry cleaners. Hems, zips, buttons, taking in and letting out, hem tape, hand stitching, knitwear repairs, beading and crystal repair, leather and suede repairs, and bridal alterations. Bring the garment in and we’ll fit it properly rather than guessing."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+<script>
+window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+gtag('js',new Date());gtag('config','GA_MEASUREMENT_ID');
+</script>
+<script>
+(function(){
+"use strict";
+var WEBHOOK="LEAD_WEBHOOK_URL", BTN="Book my pickup", PHONE="(02) 9817 3557", SRC="SITE_URL";
+var form=document.getElementById('lead'),done=document.getElementById('done'),err=document.getElementById('err'),started=false;
+document.getElementById('yr').textContent=new Date().getFullYear();
+Array.prototype.forEach.call(document.querySelectorAll('[data-tel]'),function(a){
+  a.addEventListener('click',function(){gtag('event','phone_click',{link_url:a.getAttribute('href')})});});
+form.addEventListener('focusin',function(){if(started)return;started=true;gtag('event','form_start',{form_id:'lead'})});
+function fail(m){err.textContent=m;err.classList.add('on')}
+form.addEventListener('submit',function(e){
+  e.preventDefault();err.classList.remove('on');
+  if(document.getElementById('company').value)return;
+  if(!form.checkValidity()){fail('Please fill in every field so we can call you back.');
+    var bad=form.querySelector(':invalid');if(bad)bad.focus();return;}
+  var b=form.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending…';
+  var payload={name:form.name.value.trim(),phone:form.phone.value.trim(),email:form.email.value.trim(),
+    service:form.service.value,store:form.store.value,source:SRC,submitted_at:new Date().toISOString()};
+  function ok(){gtag('event','generate_lead',{currency:'AUD',value:1,service:payload.service,store:payload.store});
+    form.style.display='none';done.classList.add('on');done.scrollIntoView({block:'center'})}
+  if(!WEBHOOK||WEBHOOK.indexOf('LEAD_WEBHOOK')===0){setTimeout(ok,350);return;}
+  fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+    .then(function(r){if(!r.ok)throw new Error(r.status);ok()})
+    .catch(function(){b.disabled=false;b.textContent=BTN;
+      fail('That didn\u2019t send. Please call us on '+PHONE+' and we\u2019ll sort it straight away.')});
+});})();
+</script>
+</body>
+</html>

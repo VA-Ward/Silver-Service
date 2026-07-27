@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Edit your website</title>
+<style>
+:root{--navy:#1B2A4A;--navy-deep:#0E1729;--brass:#B08D57;--brass-ink:#8A6A34;--brass-lift:#C9A874;
+ --paper:#F7F8FA;--line:#D9DDE4;--slate:#5A6478;--ok:#1E6B4F;--bad:#8C2F39;
+ --f:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--navy-deep);font:400 15px/1.6 var(--f)}
+h1,h2,h3{margin:0;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+button{font:inherit;cursor:pointer}
+input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--brass);outline-offset:2px}
+code{background:var(--paper);border:1px solid var(--line);padding:1px 5px;font-size:13px;word-break:break-all}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:44px;padding:11px 18px;
+ border:1px solid var(--navy);background:var(--navy);color:#fff;font-weight:600;font-size:14px}
+.btn:hover:not(:disabled){background:var(--navy-deep)}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.brass{background:var(--brass);border-color:var(--brass);color:#10192b}
+.btn.brass:hover:not(:disabled){background:var(--brass-lift);border-color:var(--brass-lift)}
+.btn.ghost{background:transparent;color:var(--navy);border-color:var(--line)}
+.btn.ghost:hover:not(:disabled){border-color:var(--navy)}
+.btn.sm{min-height:36px;padding:7px 13px;font-size:13px}
+.btn.danger{background:transparent;color:var(--bad);border-color:var(--line)}
+.btn.danger:hover:not(:disabled){border-color:var(--bad)}
+
+.gate{min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--navy-deep)}
+.gate .box{width:100%;max-width:520px;background:#fff;padding:clamp(26px,5vw,44px)}
+.gate h1{font-size:26px;margin-bottom:8px}
+.gate .sub{color:var(--slate);margin:0 0 26px;font-size:14px}
+.mark{font-weight:700;letter-spacing:.13em;text-transform:uppercase;font-size:15px;margin-bottom:26px;display:block}
+.mark span{display:block;font-size:10px;letter-spacing:.22em;color:var(--brass-ink);margin-top:5px}
+details.help{margin-top:22px;border-top:1px solid var(--line);padding-top:18px}
+details.help summary{cursor:pointer;font-weight:600;font-size:14px}
+details.help ol{margin:14px 0 0;padding-left:20px;color:var(--slate);font-size:14px}
+details.help li{margin-bottom:9px}
+
+.app{display:none;min-height:100vh;grid-template-rows:auto 1fr}
+.app.on{display:grid}
+.top{position:sticky;top:0;z-index:20;background:var(--navy);color:#fff;display:flex;align-items:center;
+ gap:14px;padding:10px 18px;flex-wrap:wrap}
+.top .who{font-weight:700;letter-spacing:.1em;text-transform:uppercase;font-size:13px;margin-right:auto}
+.top .who em{display:block;font-style:normal;font-size:10px;letter-spacing:.18em;color:var(--brass-lift);font-weight:600}
+.top .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.4);text-decoration:none}
+.state{font-size:13px;color:#B9C3D4;display:flex;align-items:center;gap:7px}
+.dot{width:8px;height:8px;border-radius:50%;background:#7C8AA3;flex:none}
+.dot.live{background:#4BAE7E}.dot.work{background:var(--brass-lift);animation:pulse 1.1s ease-in-out infinite}
+.dot.bad{background:#D0666F}
+@keyframes pulse{50%{opacity:.25}}
+
+.main{display:grid;grid-template-columns:1fr;align-items:start}
+@media(min-width:900px){.main{grid-template-columns:236px 1fr}}
+.side{background:#fff;border-bottom:1px solid var(--line);padding:10px}
+@media(min-width:900px){.side{border-bottom:0;border-right:1px solid var(--line);min-height:calc(100vh - 60px);
+ position:sticky;top:60px;padding:18px 12px}}
+.side button{display:block;width:100%;text-align:left;border:0;background:transparent;padding:11px 12px;
+ font-size:14px;font-weight:500;color:var(--slate);border-left:3px solid transparent}
+.side button:hover{color:var(--navy);background:var(--paper)}
+.side button.on{color:var(--navy);font-weight:700;border-left-color:var(--brass);background:var(--paper)}
+@media(max-width:899px){.side{display:flex;gap:4px;overflow-x:auto}
+ .side button{width:auto;white-space:nowrap;border-left:0;border-bottom:3px solid transparent}
+ .side button.on{border-left:0;border-bottom-color:var(--brass)}}
+
+.pane{padding:clamp(18px,3vw,34px);max-width:820px}
+.pane>h2{font-size:23px;margin-bottom:6px}
+.pane>.blurb{color:var(--slate);font-size:14px;margin:0 0 26px;max-width:60ch}
+
+.fld{margin-bottom:19px}
+.fld>label,.lbl{display:block;font-size:13px;font-weight:600;margin-bottom:6px}
+.fld .hint{font-size:12.5px;color:var(--slate);margin:0 0 7px;line-height:1.45}
+.fld input[type=text],.fld input[type=number],.fld input[type=time],.fld select,.fld textarea{
+ width:100%;padding:11px 12px;border:1px solid var(--line);background:#fff;border-radius:0}
+.fld textarea{min-height:112px;resize:vertical;line-height:1.6}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--navy);outline:2px solid var(--brass);outline-offset:1px}
+.two{display:grid;gap:14px;grid-template-columns:1fr}
+@media(min-width:620px){.two{grid-template-columns:1fr 1fr}}
+.check{display:flex;align-items:center;gap:9px;font-size:14px;font-weight:500}
+.check input{width:19px;height:19px;flex:none;accent-color:var(--navy)}
+
+.item{border:1px solid var(--line);background:#fff;margin-bottom:14px}
+.item>summary{cursor:pointer;padding:14px 16px;font-weight:600;display:flex;align-items:center;gap:10px;list-style:none}
+.item>summary::-webkit-details-marker{display:none}
+.item>summary::before{content:"";width:9px;height:9px;border-right:2px solid var(--brass);
+ border-bottom:2px solid var(--brass);transform:rotate(-45deg);transition:transform .18s;flex:none;margin-left:3px}
+.item[open]>summary::before{transform:rotate(45deg)}
+.item .inner{padding:4px 16px 16px;border-top:1px solid var(--line)}
+.item .rowtools{margin-left:auto;display:flex;gap:6px}
+.strs{display:grid;gap:8px}
+.strs .r{display:flex;gap:8px}
+.strs .r input{flex:1;padding:10px 12px;border:1px solid var(--line)}
+
+.hrs{border:1px solid var(--line);background:#fff}
+.hrs .row{display:grid;grid-template-columns:76px 1fr;gap:10px;align-items:center;padding:9px 12px;border-bottom:1px solid var(--line)}
+.hrs .row:last-child{border-bottom:0}
+.hrs .day{font-weight:600;font-size:13.5px}
+.hrs .times{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hrs input[type=time]{padding:8px 9px;border:1px solid var(--line);min-width:118px}
+.hrs .sep{color:var(--slate);font-size:13px}
+.hrs .shut{margin-left:auto;display:flex;align-items:center;gap:7px;font-size:13px;color:var(--slate)}
+.hrs .shut input{width:17px;height:17px;accent-color:var(--navy)}
+.hrs .row.off input[type=time]{opacity:.35;pointer-events:none}
+
+.img{display:flex;gap:14px;align-items:flex-start;flex-wrap:wrap}
+.img .thumb{width:132px;height:99px;object-fit:cover;background:var(--paper);border:1px solid var(--line);flex:none}
+.img .side2{flex:1;min-width:190px}
+.img .name{font-size:12.5px;color:var(--slate);word-break:break-all;margin:0 0 9px}
+
+.bar{position:sticky;bottom:0;z-index:20;background:#fff;border-top:1px solid var(--line);
+ padding:12px 18px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bar .msg{font-size:13.5px;color:var(--slate);margin-right:auto}
+.bar .msg.ok{color:var(--ok);font-weight:600}
+.bar .msg.bad{color:var(--bad);font-weight:600}
+.err{background:#FDF1F2;border:1px solid #E7C0C4;color:var(--bad);padding:11px 14px;font-size:13.5px;margin-top:14px;display:none}
+.err.on{display:block}
+</style>
+</head>
+<body>
+
+<div class="gate" id="gate">
+  <div class="box">
+    <span class="mark">Website editor<span id="siteName">&nbsp;</span></span>
+    <h1>Sign in to edit your site</h1>
+    <p class="sub">Paste your access key below. If you haven't got one yet, open the instructions underneath.</p>
+    <div class="fld">
+      <label for="tok">Access key</label>
+      <input id="tok" type="password" autocomplete="current-password" spellcheck="false" placeholder="github_pat_…">
+    </div>
+    <div class="fld">
+      <label class="check"><input id="remember" type="checkbox"> Stay signed in on this device</label>
+      <p class="hint">Leave this unticked on a shared computer — you'll be signed out when you close the tab.</p>
+    </div>
+    <button class="btn brass" id="signin" style="width:100%">Sign in</button>
+    <div class="err" id="gateErr"></div>
+    <details class="help">
+      <summary>I haven't got an access key</summary>
+      <ol>
+        <li>Sign in to GitHub and go to <strong>Settings → Developer settings → Personal access tokens → Fine-grained tokens</strong>.</li>
+        <li><strong>Generate new token.</strong> Name it "Website editor".</li>
+        <li>Under <strong>Repository access</strong>, choose <strong>Only select repositories</strong> and pick <code id="repoName">your website's repository</code>.</li>
+        <li>Under <strong>Permissions → Repository permissions</strong>, set <strong>Contents</strong> to <strong>Read and write</strong>. Leave the rest alone.</li>
+        <li>Generate it, copy the key, paste it above. Keep a copy safe — GitHub shows it once.</li>
+      </ol>
+    </details>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <header class="top">
+    <span class="who">Website editor<em id="who2">&nbsp;</em></span>
+    <span class="state"><span class="dot" id="dot"></span><span id="stateTxt">Loading…</span></span>
+    <a class="btn sm" id="viewSite" href="#" target="_blank" rel="noopener">View site</a>
+    <button class="btn sm" id="out">Sign out</button>
+  </header>
+  <div class="main">
+    <nav class="side" id="side" aria-label="Sections"></nav>
+    <div>
+      <div class="pane" id="pane"></div>
+      <div class="bar">
+        <span class="msg" id="msg"></span>
+        <button class="btn ghost" id="revert" disabled>Undo my changes</button>
+        <button class="btn brass" id="save" disabled>Save &amp; publish</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+
+/* ================================================================
+   SET THESE THREE BEFORE HANDING THE SITE OVER
+   ================================================================ */
+var CONFIG = {
+  owner:  "GITHUB_OWNER",
+  repo:   "GITHUB_REPO",
+  branch: "main"
+};
+
+var S = { token:"", data:null, original:"", shaContent:"", shaIndex:"", section:0, dirty:false };
+var KEY = "site_editor_key";
+var DAYS = ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"];
+var SHORT = {Monday:"Mon",Tuesday:"Tue",Wednesday:"Wed",Thursday:"Thu",Friday:"Fri",Saturday:"Sat",Sunday:"Sun"};
+
+/* ---------------------------------------------------------------- helpers */
+function $(id){ return document.getElementById(id); }
+function el(t,c,x){ var e=document.createElement(t); if(c)e.className=c; if(x!=null)e.textContent=x; return e; }
+function b64d(b){ var s=atob(b.replace(/\s/g,"")),a=new Uint8Array(s.length);
+  for(var i=0;i<s.length;i++)a[i]=s.charCodeAt(i); return new TextDecoder("utf-8").decode(a); }
+function b64e(s){ var a=new TextEncoder().encode(s),b="";
+  for(var i=0;i<a.length;i++)b+=String.fromCharCode(a[i]); return btoa(b); }
+function get(o,p){ return p ? p.split(".").reduce(function(x,k){return x==null?undefined:x[k]},o) : o; }
+function set(o,p,v){ var k=p.split("."),l=k.pop();
+  k.reduce(function(x,n){ if(x[n]==null)x[n]={}; return x[n]; },o)[l]=v; }
+
+function api(path,opts){
+  opts=opts||{};
+  return fetch("https://api.github.com/repos/"+CONFIG.owner+"/"+CONFIG.repo+path,{
+    method:opts.method||"GET",
+    headers:{"Authorization":"Bearer "+S.token,"Accept":"application/vnd.github+json",
+             "X-GitHub-Api-Version":"2022-11-28"},
+    body:opts.body?JSON.stringify(opts.body):undefined
+  }).then(function(r){
+    return r.json().catch(function(){return {}}).then(function(j){
+      if(!r.ok){ var e=new Error(j.message||("GitHub returned "+r.status)); e.status=r.status; throw e; }
+      return j;
+    });
+  });
+}
+function status(k,t){ $("dot").className="dot "+k; $("stateTxt").textContent=t; }
+function message(k,t){ var m=$("msg"); m.className="msg "+(k||""); m.textContent=t; }
+
+/* ================================================================
+   THE WEBSITE TEMPLATE
+   Turns content.json into the finished index.html. This is the only
+   place the design lives — index.html is overwritten on every publish,
+   so never hand-edit it.
+   ================================================================ */
+function esc(s){ return String(s==null?"":s)
+  .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")
+  .replace(/"/g,"&quot;").replace(/'/g,"&#39;"); }
+
+function telHref(p){ var d=String(p||"").replace(/\D/g,"");
+  return d.charAt(0)==="0" ? "+61"+d.slice(1) : d.slice(0,2)==="61" ? "+"+d : (d?"+"+d:""); }
+
+function prettyTime(t){
+  if(!t) return "";
+  var b=t.split(":"), h=parseInt(b[0],10), m=b[1]||"00";
+  return (h%12||12)+":"+m+(h<12?"am":"pm");
+}
+function keyOf(d){ return d.closed ? "closed" : (d.open+"-"+d.close); }
+
+function groupHours(rows){
+  var out=[],run=[];
+  function flush(){
+    if(!run.length) return;
+    var a=run[0], b=run[run.length-1];
+    var label = a===b ? SHORT[a.day] : SHORT[a.day]+"\u2013"+SHORT[b.day];
+    out.push({label:label, value: a.closed ? "Closed" : prettyTime(a.open)+" \u2013 "+prettyTime(a.close)});
+    run=[];
+  }
+  rows.forEach(function(d){
+    if(run.length && keyOf(run[run.length-1])!==keyOf(d)) flush();
+    run.push(d);
+  });
+  flush();
+  return out;
+}
+function schemaHours(rows){
+  var out=[],run=[];
+  function flush(){
+    if(!run.length || run[0].closed){ run=[]; return; }
+    var days=run.map(function(d){return d.day});
+    out.push({"@type":"OpeningHoursSpecification",
+      dayOfWeek: days.length===1?days[0]:days, opens:run[0].open, closes:run[0].close});
+    run=[];
+  }
+  rows.forEach(function(d){
+    if(run.length && keyOf(run[run.length-1])!==keyOf(d)) flush();
+    run.push(d);
+  });
+  flush();
+  return out;
+}
+function summaryHours(rows){
+  return groupHours(rows).filter(function(r){return r.value!=="Closed"})
+    .map(function(r){return r.label+" "+r.value}).join(" \u00b7 ");
+}
+function slugify(s){ return String(s||"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,""); }
+function mapsUrl(st,biz){
+  return "https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(
+    biz.legal_name+", "+(st.address_lines||[]).join(", ")+", "+st.suburb+" "+st.state+" "+st.postcode);
+}
+function paras(t){ return String(t||"").split(/\n\s*\n/).filter(function(p){return p.trim()}); }
+
+function renderSite(d){
+  var biz=d.business, seo=d.seo, url=String(seo.site_url||"").replace(/\/$/,"");
+  var tel=telHref(biz.head_office_phone);
+  var stores=(d.stores||[]).map(function(s){
+    var c=Object.assign({},s);
+    c.slug=slugify(s.name); c.tel=telHref(s.phone);
+    c.disp=groupHours(s.hours||[]); c.sum=summaryHours(s.hours||[]); c.maps=mapsUrl(s,biz);
+    return c;
+  });
+  var svc=d.services.entries||[];
+  var lead=svc.filter(function(x){return x.featured}), rest=svc.filter(function(x){return !x.featured});
+
+  function img(src,alt,ratio,priority){
+    if(!src) return "";
+    return '<img src="'+esc(src)+'" alt="'+esc(alt)+'" style="aspect-ratio:'+ratio+'"'+
+      (priority?' fetchpriority="high"':' loading="lazy"')+' decoding="async">';
+  }
+  function card(s,big){
+    return '<article class="card'+(big?" lead":"")+'">'+
+      img(s.image,s.image_alt,big?"11/12":"4/3")+
+      '<div class="body"><h3>'+esc(s.title)+'</h3>'+
+      paras(s.body).map(function(p){return "<p>"+esc(p)+"</p>"}).join("")+
+      (s.meta?'<p class="meta">'+esc(s.meta)+'</p>':'')+'</div></article>';
+  }
+
+  /* ---- structured data, generated from the same records the page prints ---- */
+  var graph=stores.map(function(s){
+    return {
+      "@type":"DryCleaningOrLaundry","@id":url+"/#"+s.slug,
+      name:biz.legal_name+" \u2014 "+s.name, url:url+"/", telephone:s.tel, email:biz.email,
+      image:url+"/"+seo.share_image,
+      address:{"@type":"PostalAddress",streetAddress:(s.address_lines||[]).join(", "),
+        addressLocality:s.suburb,addressRegion:s.state,postalCode:s.postcode,addressCountry:"AU"},
+      geo:{"@type":"GeoCoordinates",latitude:s.latitude,longitude:s.longitude},
+      openingHoursSpecification:schemaHours(s.hours||[]),
+      areaServed:s.areas_served||[], foundingDate:biz.established,
+      hasOfferCatalog:{"@type":"OfferCatalog",name:"Services",
+        itemListElement:svc.map(function(x){
+          return {"@type":"Offer",itemOffered:{"@type":"Service",name:x.title}}})}
+    };
+  });
+  graph.push({"@type":"FAQPage","@id":url+"/#faq",
+    mainEntity:(d.faq.entries||[]).map(function(q){
+      return {"@type":"Question",name:q.question,
+        acceptedAnswer:{"@type":"Answer",text:q.answer}}})});
+  var ld=JSON.stringify({"@context":"https://schema.org","@graph":graph},null,2).replace(/</g,"\\u003c");
+
+  return '<!DOCTYPE html>\n<html lang="en-AU">\n<head>\n'+
+'<meta charset="utf-8">\n<meta name="viewport" content="width=device-width, initial-scale=1">\n'+
+'<title>'+esc(seo.title)+'</title>\n'+
+'<meta name="description" content="'+esc(seo.description)+'">\n'+
+'<link rel="canonical" href="'+esc(url)+'/">\n'+
+(d.settings.search_console_tag?'<meta name="google-site-verification" content="'+esc(d.settings.search_console_tag)+'">\n':'')+
+'<meta property="og:type" content="website">\n'+
+'<meta property="og:title" content="'+esc(seo.title)+'">\n'+
+'<meta property="og:description" content="'+esc(seo.description)+'">\n'+
+'<meta property="og:url" content="'+esc(url)+'/">\n'+
+'<meta property="og:image" content="'+esc(url+"/"+seo.share_image)+'">\n'+
+'<meta property="og:locale" content="en_AU">\n<meta name="theme-color" content="#1B2A4A">\n'+
+'<link rel="preconnect" href="https://fonts.googleapis.com">\n'+
+'<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>\n'+
+(d.hero.image?'<link rel="preload" as="image" href="'+esc(d.hero.image)+'" fetchpriority="high">\n':'')+
+'<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap">\n'+
+'<style>\n'+SITE_CSS+'\n<\/style>\n</head>\n<body>\n'+
+
+'<a class="skip" href="#main">Skip to content</a>\n'+
+
+'<header class="hdr"><div class="wrap row">'+
+'<a class="mark" href="#main" aria-label="'+esc(biz.legal_name)+', home">'+
+'<b>'+esc(biz.name)+'</b><span>'+esc(biz.descriptor)+'</span></a>'+
+'<nav class="nav" aria-label="Main"><a href="#services">Services</a><a href="#why">Why us</a>'+
+'<a href="#stores">Stores</a><a href="#faq">FAQ</a></nav>'+
+'<div class="hdr-act"><a class="tel" href="tel:'+esc(tel)+'" data-tel>'+esc(biz.head_office_phone)+'</a>'+
+'<a class="btn sm" href="#book">'+esc(d.hero.cta_label)+'</a></div></div></header>\n'+
+
+'<main id="main">\n'+
+'<section class="hero on-navy"><div class="wrap hero-grid"><div>'+
+'<span class="tag">'+esc(d.hero.eyebrow)+'</span>'+
+'<h1>'+esc(d.hero.headline)+'<em>'+esc(d.hero.headline_accent)+'</em></h1>'+
+'<p class="lede">'+esc(d.hero.lede)+'</p>'+
+'<div class="cta"><a class="btn brass" href="#book">'+esc(d.hero.cta_label)+'</a>'+
+'<a class="btn ghost" href="tel:'+esc(tel)+'" data-tel>Call '+esc(biz.head_office_phone)+'</a></div>'+
+'<p class="promise">'+esc(d.hero.promise)+'</p></div>'+
+'<figure class="hero-fig">'+img(d.hero.image,d.hero.image_alt,"16/11",true)+
+'<figcaption>'+esc(d.hero.image_caption)+'</figcaption></figure></div></section>\n'+
+
+'<section class="trust" aria-label="Why customers trust us"><div class="wrap"><ul>'+
+(d.trust||[]).map(function(t){
+  return '<li><b>'+esc(t.title)+'</b><span>'+esc(t.note)+'</span></li>'}).join("")+
+'</ul></div></section>\n'+
+
+'<section class="sec" id="services"><div class="wrap"><div class="head">'+
+'<span class="tag">'+esc(d.services.eyebrow)+'</span><h2>'+esc(d.services.heading)+'</h2>'+
+'<p>'+esc(d.services.intro)+'</p></div><div class="svc">'+
+lead.map(function(s){return card(s,true)}).join("")+
+rest.map(function(s){return card(s,false)}).join("")+
+'</div></div></section>\n'+
+
+'<section class="sec why" id="why"><div class="wrap why-grid"><div><div class="head">'+
+'<span class="tag">'+esc(d.why.eyebrow)+'</span><h2>'+esc(d.why.heading)+'</h2></div><ul class="pts">'+
+(d.why.points||[]).map(function(p){
+  return '<li><h3>'+esc(p.title)+'</h3><p>'+esc(p.body)+'</p></li>'}).join("")+
+'</ul></div><div class="quote"><blockquote>&ldquo;'+esc(d.why.quote)+'&rdquo;</blockquote>'+
+'<cite>'+esc(d.why.quote_attribution)+'</cite>'+
+img(d.why.quote_image,d.why.quote_image_alt,"3/2")+'</div></div></section>\n'+
+
+'<section class="sec" id="how"><div class="wrap"><div class="head">'+
+'<span class="tag">'+esc(d.steps.eyebrow)+'</span><h2>'+esc(d.steps.heading)+'</h2></div><ol class="steps">'+
+(d.steps.entries||[]).map(function(s){
+  return '<li><h3>'+esc(s.title)+'</h3><p>'+esc(s.body)+'</p></li>'}).join("")+
+'</ol></div></section>\n'+
+
+'<section class="sec rev" id="reviews"><div class="wrap on-navy"><div class="head">'+
+'<span class="tag">'+esc(d.reviews.eyebrow)+'</span>'+
+'<h2 style="color:#fff">'+esc(d.reviews.heading)+'</h2></div><div class="rev-grid">'+
+(d.reviews.entries||[]).map(function(r){
+  return '<figure><blockquote>'+esc(r.quote)+'</blockquote><figcaption>'+esc(r.name)+'</figcaption></figure>'}).join("")+
+'</div><p class="rev-foot">'+esc(d.reviews.prompt)+' <a class="btn ghost sm" href="'+
+esc(d.settings.review_link)+'" rel="nofollow noopener">'+esc(d.reviews.link_label)+'</a></p></div></section>\n'+
+
+'<section class="sec" id="stores"><div class="wrap"><div class="head">'+
+'<span class="tag">'+esc(d.stores_section.eyebrow)+'</span><h2>'+esc(d.stores_section.heading)+'</h2>'+
+'<p>'+esc(d.stores_section.intro)+'</p></div><div class="stores">'+
+stores.map(function(s){
+  return '<article class="store" id="'+esc(s.slug)+'"><h3>'+esc(s.name)+'</h3>'+
+    (s.tagline?'<p class="sub">'+esc(s.tagline)+'</p>':'')+
+    '<address>'+(s.address_lines||[]).map(function(l){return esc(l)+"<br>"}).join("")+
+    esc(s.suburb+" "+s.state+" "+s.postcode)+'</address><dl>'+
+    s.disp.map(function(h){return "<dt>"+esc(h.label)+"</dt><dd>"+esc(h.value)+"</dd>"}).join("")+
+    '</dl><p>'+esc(s.local_copy)+'</p><p class="links">'+
+    '<a href="tel:'+esc(s.tel)+'" data-tel>'+esc(s.phone)+'</a>'+
+    '<a href="'+esc(s.maps)+'" rel="noopener">Directions</a></p></article>'}).join("")+
+'</div></div></section>\n'+
+
+'<section class="sec faq" id="faq"><div class="wrap"><div class="head">'+
+'<span class="tag">'+esc(d.faq.eyebrow)+'</span><h2>'+esc(d.faq.heading)+'</h2></div><div class="faq-list">'+
+(d.faq.entries||[]).map(function(q){
+  return '<details><summary><h3>'+esc(q.question)+'</h3></summary>'+
+    '<div class="ans"><p>'+esc(q.answer)+'</p></div></details>'}).join("")+
+'</div></div></section>\n'+
+
+'<section class="sec book on-navy" id="book"><div class="wrap book-grid"><div>'+
+'<span class="tag">'+esc(d.book.eyebrow)+'</span>'+
+'<h2 style="color:#fff">'+esc(d.book.heading)+'</h2>'+
+'<p class="lede">'+esc(d.book.lede)+'</p><ul>'+
+'<li>Head office: <a href="tel:'+esc(tel)+'" data-tel style="color:#fff">'+esc(biz.head_office_phone)+'</a></li>'+
+'<li><a href="mailto:'+esc(biz.email)+'" style="color:#fff">'+esc(biz.email)+'</a></li>'+
+(d.book.notes||[]).map(function(n){return "<li>"+esc(n)+"</li>"}).join("")+
+'</ul></div><div><form id="lead" novalidate>'+
+'<div class="field"><label for="name">Your name</label>'+
+'<input id="name" name="name" type="text" autocomplete="name" required></div>'+
+'<div class="field"><label for="phone">Phone</label>'+
+'<input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required></div>'+
+'<div class="field"><label for="email">Email</label>'+
+'<input id="email" name="email" type="email" autocomplete="email" required></div>'+
+'<div class="field"><label for="service">What do you need?</label><select id="service" name="service" required>'+
+'<option value="">Choose a service</option>'+
+(d.book.service_options||[]).map(function(o){return "<option>"+esc(o)+"</option>"}).join("")+
+'</select></div>'+
+'<div class="field"><label for="store">Nearest store</label><select id="store" name="store" required>'+
+'<option value="">Choose a store</option>'+
+stores.map(function(s){return "<option>"+esc(s.name)+"</option>"}).join("")+
+'<option>Not sure &mdash; I&rsquo;d like pick-up and delivery</option></select></div>'+
+'<div class="hp" aria-hidden="true"><label for="company">Company</label>'+
+'<input id="company" name="company" type="text" tabindex="-1" autocomplete="off"></div>'+
+'<button class="btn brass" type="submit">'+esc(d.book.button_label)+'</button>'+
+'<p class="err" id="err" role="alert"></p>'+
+'<p class="fine">'+esc(d.book.privacy_line)+' Prefer to talk? Call '+
+'<a href="tel:'+esc(tel)+'" data-tel>'+esc(biz.head_office_phone)+'</a>.</p></form>'+
+'<div class="done" id="done" role="status" aria-live="polite">'+
+'<h3>'+esc(d.book.confirm_heading)+'</h3><p>'+esc(d.book.confirm_body)+'</p>'+
+'<p>Need it sooner? Call <a href="tel:'+esc(tel)+'" data-tel><strong>'+
+esc(biz.head_office_phone)+'</strong></a>.</p></div></div></div></section>\n'+
+'</main>\n'+
+
+'<footer class="ftr"><div class="wrap"><div class="ftr-grid">'+
+stores.map(function(s,i){
+  return (i%2===0?"<div>":"")+
+    '<h2>'+esc(s.name)+'</h2><address><b>'+esc(biz.legal_name)+'</b>'+
+    (s.address_lines||[]).map(function(l){return esc(l)+"<br>"}).join("")+
+    esc(s.suburb+" "+s.state+" "+s.postcode)+'<br>'+
+    '<a href="tel:'+esc(s.tel)+'" data-tel>'+esc(s.phone)+'</a><br>'+esc(s.sum)+'</address>'+
+    (i%2===1||i===stores.length-1?"</div>":"")}).join("")+
+'<div><h2>Services</h2><ul>'+
+svc.map(function(s){return '<li><a href="#services">'+esc(s.title)+'</a></li>'}).join("")+
+'</ul></div><div><h2>Head office</h2><address>'+esc(biz.postal_address)+'<br>'+
+'<a href="tel:'+esc(tel)+'" data-tel>'+esc(biz.head_office_phone)+'</a><br>'+
+'<a href="mailto:'+esc(biz.email)+'">'+esc(biz.email)+'</a></address><ul>'+
+'<li><a href="#book">'+esc(d.hero.cta_label)+'</a></li>'+
+'<li><a href="#faq">'+esc(d.faq.eyebrow)+'</a></li>'+
+'<li><a href="'+esc(d.settings.review_link)+'" rel="nofollow noopener">'+esc(d.reviews.link_label)+'</a></li>'+
+'</ul></div></div><div class="base">'+
+'<span>&copy; <span id="yr">2026</span> '+esc(biz.legal_name)+'</span>'+
+'<span>'+esc(biz.accreditation)+'</span><span>'+esc(d.footer.tagline)+'</span>'+
+'</div></div></footer>\n'+
+
+'<nav class="bar" aria-label="Quick actions">'+
+'<a href="tel:'+esc(tel)+'" data-tel>Call us</a>'+
+'<a class="b" href="#book">'+esc(d.hero.cta_label)+'</a></nav>\n'+
+
+'<script type="application/ld+json">\n'+ld+'\n<\/script>\n'+
+'<script async src="https://www.googletagmanager.com/gtag/js?id='+esc(d.settings.ga_measurement_id)+'"><\/script>\n'+
+'<script>\nwindow.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}\n'+
+"gtag('js',new Date());gtag('config','"+esc(d.settings.ga_measurement_id)+"');\n<\/script>\n"+
+'<script>\n'+SITE_JS
+  .replace("__WEBHOOK__", JSON.stringify(d.settings.lead_webhook_url||""))
+  .replace("__BUTTON__", JSON.stringify(d.book.button_label||"Send"))
+  .replace("__PHONE__", JSON.stringify(biz.head_office_phone||""))
+  .replace("__SOURCE__", JSON.stringify(url))
++'\n<\/script>\n</body>\n</html>\n';
+}
+
+/* the stylesheet that ships inside the published page */
+var SITE_CSS = `
+/* ------------------------------------------------------------------
+   Silver Service Dry Cleaners & Tailors
+   Direction 1 — Pressed & Precise (modern tailoring)
+   Signature: pressed-crease rules + garment-tag section labels
+------------------------------------------------------------------ */
+:root{
+  --navy:#1B2A4A;
+  --navy-deep:#0E1729;
+  --navy-mid:#2E446E;
+  --brass:#B08D57;
+  --brass-lift:#C9A874;
+  --brass-ink:#8A6A34;
+  --grey:#E6E8EC;
+  --paper:#F7F8FA;
+  --white:#fff;
+  --slate:#5A6478;
+  --line:rgba(27,42,74,.14);
+
+  --wrap:1180px;
+  --gut:clamp(20px,5vw,48px);
+  --sec:clamp(64px,9vw,120px);
+
+  --f:"Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --h1:clamp(2.15rem,6.1vw,4.35rem);
+  --h2:clamp(1.65rem,3.5vw,2.7rem);
+  --h3:clamp(1.12rem,1.7vw,1.4rem);
+  --tag:.688rem;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{
+  margin:0;background:var(--white);color:var(--navy-deep);
+  font:400 clamp(1rem,.97rem + .18vw,1.075rem)/1.65 var(--f);
+  letter-spacing:-.005em;-webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit}
+h1,h2,h3,h4{margin:0;font-weight:700;line-height:1.06;letter-spacing:-.028em}
+h1{font-size:var(--h1)}
+h2{font-size:var(--h2)}
+h3{font-size:var(--h3);letter-spacing:-.018em;line-height:1.2}
+p{margin:0 0 1em}
+p:last-child{margin-bottom:0}
+.wrap{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut)}
+.sec{padding-block:var(--sec)}
+.skip{position:absolute;left:-9999px;top:0;background:var(--navy);color:#fff;padding:12px 18px;z-index:100}
+.skip:focus{left:12px;top:12px}
+:focus-visible{outline:3px solid var(--brass);outline-offset:3px;border-radius:2px}
+
+/* ---- signature 1: garment tag label ---- */
+.tag{
+  display:inline-flex;align-items:center;gap:.55em;
+  font-size:var(--tag);font-weight:600;text-transform:uppercase;
+  letter-spacing:.19em;color:var(--brass-ink);
+  padding:.42em .82em .42em .72em;margin-bottom:1.4em;
+  border:1px solid rgba(176,141,87,.42);
+  clip-path:polygon(9px 0,100% 0,100% 100%,9px 100%,0 50%);
+  padding-left:1.15em;
+}
+.tag::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--brass-ink);flex:none}
+.on-navy .tag{color:var(--brass-lift);border-color:rgba(201,168,116,.45)}
+.on-navy .tag::before{background:var(--brass-lift)}
+
+/* ---- signature 2: pressed crease rule ---- */
+.crease{position:relative;height:1px;background:var(--line);border:0;margin:0}
+.crease::after{
+  content:"";position:absolute;left:0;top:-3px;width:74px;height:7px;
+  border-left:1px solid var(--brass);border-bottom:1px solid var(--brass);
+  transform:skewX(-38deg);transform-origin:left bottom;
+}
+
+/* ---------- header ---------- */
+.hdr{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}
+.hdr .row{display:flex;align-items:center;gap:clamp(16px,3vw,40px);min-height:70px}
+.mark{display:block;text-decoration:none;flex:none;line-height:1;padding-block:6px}
+.mark b{display:block;font-weight:700;font-size:1.06rem;letter-spacing:.13em;text-transform:uppercase}
+.mark span{display:block;font-size:.62rem;letter-spacing:.24em;text-transform:uppercase;color:var(--brass-ink);margin-top:5px;font-weight:600}
+.nav{display:none;gap:26px;margin-left:auto;font-size:.9rem;font-weight:500}
+.nav a{text-decoration:none;color:var(--slate);display:inline-flex;align-items:center;min-height:44px;border-bottom:2px solid transparent}
+.nav a:hover{color:var(--navy);border-bottom-color:var(--brass)}
+.hdr-act{display:flex;align-items:center;gap:14px;margin-left:auto}
+.nav + .hdr-act{margin-left:0}
+.tel{display:none;text-decoration:none;font-weight:600;font-size:.94rem;white-space:nowrap}
+.tel:hover{color:var(--brass)}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:.5em;
+  font:600 .94rem/1 var(--f);letter-spacing:.005em;text-decoration:none;cursor:pointer;
+  padding:14px 22px;border:1px solid var(--navy);background:var(--navy);color:#fff;
+  transition:background .18s ease,color .18s ease,border-color .18s ease;
+}
+.btn:hover{background:var(--navy-deep);border-color:var(--navy-deep)}
+.btn.brass{background:var(--brass);border-color:var(--brass);color:#10192b}
+.btn.brass:hover{background:var(--brass-lift);border-color:var(--brass-lift)}
+.btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.btn.ghost:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn.sm{padding:14px 18px;font-size:.86rem;min-height:44px}
+
+/* ---------- hero ---------- */
+.hero{background:var(--navy-deep);color:#fff;overflow:hidden;position:relative}
+.hero-grid{display:grid;gap:clamp(30px,5vw,58px);align-items:center;padding-block:clamp(52px,8vw,96px)}
+.hero h1{margin-bottom:.62em}
+.hero h1 em{font-style:normal;color:var(--brass-lift);display:block}
+.hero .lede{font-size:clamp(1.04rem,1.5vw,1.2rem);color:#C6CEDC;max-width:33em;margin-bottom:1.9em}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:1.7em}
+.promise{display:flex;gap:.7em;font-size:.9rem;color:#AEB9CC;max-width:31em;border-left:2px solid var(--brass);padding-left:1em;line-height:1.55}
+.hero-fig{position:relative}
+.hero-fig img{width:100%;height:auto;object-fit:cover;display:block}
+.hero-fig figcaption{
+  position:absolute;left:0;bottom:0;background:var(--navy-deep);color:var(--brass-lift);
+  font-size:var(--tag);font-weight:600;letter-spacing:.19em;text-transform:uppercase;padding:11px 16px;
+}
+
+/* ---------- trust strip ---------- */
+.trust{background:var(--navy);color:#fff;border-top:1px solid rgba(255,255,255,.1)}
+.trust ul{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;list-style:none;margin:0;padding:0;background:rgba(255,255,255,.13)}
+.trust li{background:var(--navy);padding:clamp(20px,3.4vw,30px) clamp(14px,2.4vw,26px)}
+.trust b{display:block;font-size:.98rem;font-weight:600;margin-bottom:5px;letter-spacing:-.01em}
+.trust span{display:block;font-size:.82rem;color:#A9B4C8;line-height:1.5}
+
+/* ---------- services ---------- */
+.head{max-width:47rem;margin-bottom:clamp(34px,5vw,58px);position:relative;
+  padding-bottom:clamp(22px,2.6vw,30px);border-bottom:1px solid var(--line)}
+.head p{color:var(--slate);font-size:1.06rem;margin-top:1em}
+.head::after{content:"";position:absolute;left:0;bottom:-3px;width:74px;height:7px;
+  border-left:1px solid var(--brass);border-bottom:1px solid var(--brass);
+  transform:skewX(-38deg);transform-origin:left bottom}
+.on-navy .head{border-bottom-color:rgba(255,255,255,.22)}
+.on-navy .head::after{border-color:var(--brass-lift)}
+.svc{display:grid;gap:clamp(22px,3vw,30px)}
+.card{border:1px solid var(--line);background:var(--white);display:flex;flex-direction:column}
+.card img{width:100%;height:auto;object-fit:cover;display:block}
+.card .body{padding:clamp(22px,2.6vw,30px);display:flex;flex-direction:column;flex:1}
+.card h3{margin-bottom:.6em}
+.card p{color:var(--slate);font-size:.965rem}
+.card .meta{
+  margin-top:auto;padding-top:1.15em;font-size:var(--tag);font-weight:600;letter-spacing:.15em;
+  text-transform:uppercase;color:var(--brass-ink);border-top:1px solid var(--line);
+}
+.card.lead{grid-column:1/-1}
+@media(min-width:820px){
+  .card.lead{flex-direction:row;align-items:stretch}
+  .card.lead img{width:46%;aspect-ratio:auto !important;min-height:100%;object-fit:cover}
+  .card.lead .body{width:54%;justify-content:center;padding:clamp(30px,3.6vw,52px)}
+  .card.lead h3{font-size:clamp(1.5rem,2.3vw,2rem);letter-spacing:-.026em}
+  .card.lead p{font-size:1.04rem}
+}
+
+/* ---------- why ---------- */
+.why{background:var(--paper);border-block:1px solid var(--line)}
+.why-grid{display:grid;gap:clamp(34px,5vw,64px);align-items:start}
+.pts{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.pts li{padding:clamp(20px,2.6vw,26px) 0;border-top:1px solid var(--line)}
+.pts li:last-child{border-bottom:1px solid var(--line)}
+.pts h3{margin-bottom:.45em}
+.pts p{color:var(--slate);font-size:.965rem;max-width:40em}
+.quote{background:var(--navy);color:#fff;padding:clamp(26px,3.4vw,38px)}
+.quote blockquote{margin:0;font-size:clamp(1.12rem,1.9vw,1.42rem);line-height:1.35;font-weight:600;letter-spacing:-.02em}
+.quote cite{display:block;margin-top:1.2em;font-style:normal;font-size:.84rem;color:var(--brass-lift);letter-spacing:.13em;text-transform:uppercase;font-weight:600}
+.quote img{margin-top:clamp(22px,3vw,30px);width:100%;height:auto;object-fit:cover;display:block}
+
+/* ---------- steps (a real sequence, so numbered) ---------- */
+.steps{display:grid;gap:clamp(24px,3vw,34px);counter-reset:s}
+.steps li{list-style:none;counter-increment:s;border-top:2px solid var(--navy);padding-top:1.1em}
+.steps li::before{
+  content:counter(s,decimal-leading-zero);display:block;font-size:.8rem;font-weight:700;
+  letter-spacing:.16em;color:var(--brass-ink);margin-bottom:.85em;
+}
+.steps h3{margin-bottom:.45em}
+.steps p{color:var(--slate);font-size:.95rem}
+
+/* ---------- reviews ---------- */
+.rev{background:var(--navy-deep);color:#fff}
+.rev-grid{display:grid;gap:clamp(20px,2.6vw,28px)}
+.rev figure{margin:0;border:1px solid rgba(255,255,255,.17);padding:clamp(22px,2.6vw,30px);display:flex;flex-direction:column}
+.rev blockquote{margin:0 0 1.3em;font-size:1.02rem;line-height:1.55;color:#DCE2EC}
+.rev figcaption{margin-top:auto;font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--brass-lift);font-weight:600}
+.rev-foot{margin-top:clamp(28px,3.4vw,40px);display:flex;flex-wrap:wrap;gap:14px;align-items:center;font-size:.92rem;color:#A9B4C8}
+
+/* ---------- stores ---------- */
+.stores{display:grid;gap:clamp(22px,3vw,30px)}
+.store{border:1px solid var(--line);padding:clamp(24px,2.8vw,32px);display:flex;flex-direction:column}
+.store h3{margin-bottom:.35em}
+.store .sub{font-size:var(--tag);font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--brass-ink);margin-bottom:1.1em}
+.store p{font-size:.95rem;color:var(--slate)}
+.store address{font-style:normal;font-size:.95rem;margin:0 0 1em;line-height:1.6}
+.store dl{margin:0 0 1.3em;font-size:.9rem;display:grid;grid-template-columns:auto 1fr;gap:.28em 1.1em}
+.store dt{color:var(--slate)}
+.store dd{margin:0;font-weight:500}
+.store .links{margin-top:auto;padding-top:1.2em;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:8px 18px;font-size:.9rem;font-weight:600}
+.store .links a{text-decoration:none;display:inline-flex;align-items:center;min-height:44px;
+  border-bottom:1px solid var(--brass);padding-bottom:2px}
+.store .links a:hover{color:var(--brass)}
+
+/* ---------- faq ---------- */
+.faq{background:var(--paper);border-block:1px solid var(--line)}
+.faq-list{max-width:60rem}
+.faq details{border-bottom:1px solid var(--line)}
+.faq details:first-of-type{border-top:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;padding:clamp(18px,2.2vw,24px) 46px clamp(18px,2.2vw,24px) 0;
+  position:relative;font-weight:600;font-size:clamp(1.02rem,1.5vw,1.14rem);letter-spacing:-.015em;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{
+  content:"";position:absolute;right:8px;top:50%;width:11px;height:11px;
+  border-right:2px solid var(--brass);border-bottom:2px solid var(--brass);
+  transform:translateY(-70%) rotate(45deg);transition:transform .2s ease;
+}
+.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
+.faq .ans{padding:0 0 clamp(20px,2.4vw,26px);color:var(--slate);max-width:52em;font-size:.99rem}
+.faq h3{font-size:inherit;font-weight:inherit;letter-spacing:inherit;display:inline}
+
+/* ---------- form ---------- */
+.book{background:var(--navy);color:#fff}
+.book-grid{display:grid;gap:clamp(34px,5vw,64px);align-items:start}
+.book .lede{color:#C6CEDC;font-size:1.04rem}
+.book ul{list-style:none;margin:1.7em 0 0;padding:0;display:grid;gap:.85em;font-size:.95rem;color:#C6CEDC}
+.book ul li{padding-left:1.6em;position:relative}
+.book ul li a{display:inline-block;padding-block:11px}
+.book ul li::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:1px;background:var(--brass-lift)}
+form{background:var(--white);color:var(--navy-deep);padding:clamp(24px,3.2vw,38px)}
+.field{margin-bottom:17px}
+.field label{display:block;font-size:.82rem;font-weight:600;letter-spacing:.06em;margin-bottom:7px}
+.field input,.field select{
+  width:100%;font:400 1rem/1.4 var(--f);color:var(--navy-deep);
+  padding:14px 14px;border:1px solid #C7CCD6;background:var(--white);border-radius:0;
+}
+.field select{appearance:none;background-image:linear-gradient(45deg,transparent 50%,var(--brass) 50%),linear-gradient(135deg,var(--brass) 50%,transparent 50%);background-position:calc(100% - 21px) 21px,calc(100% - 15px) 21px;background-size:6px 6px,6px 6px;background-repeat:no-repeat;padding-right:44px}
+.field input:focus,.field select:focus{border-color:var(--navy);outline:2px solid var(--brass);outline-offset:1px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+form .btn{width:100%;padding:17px 20px;font-size:1rem;margin-top:6px}
+.fine{font-size:.82rem;color:var(--slate);margin-top:14px;line-height:1.55}
+.done{display:none;padding:clamp(24px,3.2vw,38px);background:var(--white);color:var(--navy-deep)}
+.done.on{display:block}
+.done h3{color:var(--navy);margin-bottom:.6em}
+.done p{color:var(--slate)}
+.err{display:none;margin-top:14px;font-size:.9rem;color:#8C2F39;font-weight:500}
+.err.on{display:block}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--navy-deep);color:#93A0B6;font-size:.9rem;padding-block:clamp(50px,6vw,74px) 0}
+.ftr h2{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--brass-lift);margin-bottom:1.3em;font-weight:600}
+.ftr-grid{display:grid;gap:clamp(30px,4vw,44px)}
+.ftr address{font-style:normal;line-height:1.65;margin:0 0 1.35em}
+.ftr address a{display:inline-block;padding-block:11px}
+.ftr address b{display:block;color:#fff;font-weight:600;margin-bottom:2px}
+.ftr a{color:inherit;text-decoration:none}
+.ftr a:hover{color:var(--brass-lift)}
+.ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:.2em}
+.ftr ul a{display:inline-flex;align-items:center;min-height:40px}
+.ftr .base{margin-top:clamp(38px,4.5vw,54px);border-top:1px solid rgba(255,255,255,.13);padding-block:24px 100px;display:flex;flex-wrap:wrap;gap:10px 26px;font-size:.82rem}
+@media(min-width:760px){.ftr .base{padding-bottom:26px}}
+
+/* ---------- sticky mobile bar ---------- */
+.bar{
+  position:fixed;left:0;right:0;bottom:0;z-index:70;display:grid;grid-template-columns:1fr 1fr;
+  gap:1px;background:rgba(255,255,255,.2);border-top:1px solid rgba(255,255,255,.2);
+  padding-bottom:env(safe-area-inset-bottom);
+}
+.bar a{
+  display:flex;align-items:center;justify-content:center;gap:.5em;padding:16px 10px;
+  text-decoration:none;font:600 .95rem/1 var(--f);background:var(--navy);color:#fff;
+}
+.bar a.b{background:var(--brass);color:#10192b}
+@media(min-width:760px){.bar{display:none}}
+body{padding-bottom:60px}
+@media(min-width:760px){body{padding-bottom:0}}
+
+/* ---------- breakpoints ---------- */
+@media(min-width:640px){
+  .trust ul{grid-template-columns:repeat(4,1fr)}
+  .svc,.stores,.rev-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(3,1fr)}
+}
+@media(min-width:760px){
+  .tel{display:inline-block}
+}
+@media(min-width:960px){
+  .nav{display:flex}
+  .svc{grid-template-columns:repeat(6,1fr)}
+  .svc .card{grid-column:span 2}
+  .svc .card.lead{grid-column:1/-1}
+  .svc .card:nth-last-child(-n+2){grid-column:span 3}
+  .hero-grid{grid-template-columns:1.05fr .95fr}
+  .why-grid{grid-template-columns:1.15fr .85fr}
+  .book-grid{grid-template-columns:.9fr 1.1fr}
+  .stores{grid-template-columns:repeat(4,1fr)}
+  .rev-grid{grid-template-columns:repeat(3,1fr)}
+  .ftr-grid{grid-template-columns:repeat(4,1fr)}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+html{scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+`;
+
+/* the script that ships inside the published page */
+var SITE_JS = [
+"(function(){",
+'"use strict";',
+"var WEBHOOK=__WEBHOOK__, BTN=__BUTTON__, PHONE=__PHONE__, SRC=__SOURCE__;",
+"var form=document.getElementById('lead'),done=document.getElementById('done'),err=document.getElementById('err'),started=false;",
+"document.getElementById('yr').textContent=new Date().getFullYear();",
+"Array.prototype.forEach.call(document.querySelectorAll('[data-tel]'),function(a){",
+"  a.addEventListener('click',function(){gtag('event','phone_click',{link_url:a.getAttribute('href')})});});",
+"form.addEventListener('focusin',function(){if(started)return;started=true;gtag('event','form_start',{form_id:'lead'})});",
+"function fail(m){err.textContent=m;err.classList.add('on')}",
+"form.addEventListener('submit',function(e){",
+"  e.preventDefault();err.classList.remove('on');",
+"  if(document.getElementById('company').value)return;",
+"  if(!form.checkValidity()){fail('Please fill in every field so we can call you back.');",
+"    var bad=form.querySelector(':invalid');if(bad)bad.focus();return;}",
+"  var b=form.querySelector('button[type=submit]');b.disabled=true;b.textContent='Sending…';",
+"  var payload={name:form.name.value.trim(),phone:form.phone.value.trim(),email:form.email.value.trim(),",
+"    service:form.service.value,store:form.store.value,source:SRC,submitted_at:new Date().toISOString()};",
+"  function ok(){gtag('event','generate_lead',{currency:'AUD',value:1,service:payload.service,store:payload.store});",
+"    form.style.display='none';done.classList.add('on');done.scrollIntoView({block:'center'})}",
+"  if(!WEBHOOK||WEBHOOK.indexOf('LEAD_WEBHOOK')===0){setTimeout(ok,350);return;}",
+"  fetch(WEBHOOK,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})",
+"    .then(function(r){if(!r.ok)throw new Error(r.status);ok()})",
+"    .catch(function(){b.disabled=false;b.textContent=BTN;",
+"      fail('That didn\\u2019t send. Please call us on '+PHONE+' and we\\u2019ll sort it straight away.')});",
+"});})();"
+].join("\n");
+
+/* ---------------------------------------------------------------- sign in */
+function signIn(){
+  var t=$("tok").value.trim();
+  if(!t){ gateErr("Paste your access key first."); return; }
+  S.token=t; $("signin").disabled=true; $("signin").textContent="Checking…";
+  api("").then(function(){
+    try{ ($("remember").checked?localStorage:sessionStorage).setItem(KEY,t); }catch(e){}
+    $("gate").style.display="none"; $("app").classList.add("on"); load();
+  }).catch(function(e){
+    S.token=""; $("signin").disabled=false; $("signin").textContent="Sign in";
+    gateErr(e.status===401?"That key wasn't accepted. Check you copied all of it."
+      :e.status===404?"That key doesn't have access to this website's repository. Check step 3 in the instructions."
+      :"Couldn't reach GitHub: "+e.message);
+  });
+}
+function gateErr(m){ var b=$("gateErr"); b.textContent=m; b.classList.add("on"); }
+function signOut(){ try{localStorage.removeItem(KEY);sessionStorage.removeItem(KEY)}catch(e){} location.reload(); }
+
+/* ---------------------------------------------------------------- load / publish */
+function load(){
+  status("work","Loading…");
+  return api("/contents/content.json?ref="+CONFIG.branch).then(function(j){
+    S.shaContent=j.sha; S.data=JSON.parse(b64d(j.content));
+    S.original=JSON.stringify(S.data); S.dirty=false;
+    var n=(S.data.business&&S.data.business.legal_name)||"";
+    $("who2").textContent=n; $("siteName").textContent=n;
+    $("viewSite").href=(S.data.seo&&S.data.seo.site_url)||"/";
+    return api("/contents/index.html?ref="+CONFIG.branch).catch(function(){return {sha:""}});
+  }).then(function(j){
+    S.shaIndex=j.sha||"";
+    buildNav(); showSection(S.section); clean(); status("live","Up to date");
+  }).catch(function(e){
+    if(e.status===401||e.status===404){
+      try{localStorage.removeItem(KEY);sessionStorage.removeItem(KEY)}catch(x){}
+      S.token=""; $("app").classList.remove("on"); $("gate").style.display="";
+      gateErr(e.status===404
+        ? "Couldn't find content.json in the repository. Check the files were uploaded to the top level."
+        : "Your access key has expired or been revoked. Generate a new one and sign in again.");
+      return;
+    }
+    status("bad","Couldn't load"); message("bad","Couldn't load your content: "+e.message);
+  });
+}
+
+function put(path, text, sha, msg){
+  var body={ message:msg, content:b64e(text), branch:CONFIG.branch };
+  if(sha) body.sha=sha;
+  return api("/contents/"+path,{method:"PUT",body:body});
+}
+
+function publish(){
+  if(!S.dirty) return;
+  $("save").disabled=true; $("revert").disabled=true;
+  status("work","Publishing…"); message("","Saving…");
+
+  var json=JSON.stringify(S.data,null,2)+"\n";
+  var html;
+  try{ html=renderSite(S.data); }
+  catch(e){
+    $("save").disabled=false; $("revert").disabled=false;
+    status("bad","Not published");
+    message("bad","Something in your content stopped the page building, so nothing was changed: "+e.message);
+    return;
+  }
+
+  put("content.json", json, S.shaContent, "Content update from the website editor")
+    .then(function(r){
+      S.shaContent=r.content.sha;
+      return put("index.html", html, S.shaIndex, "Publish website");
+    })
+    .then(function(r){
+      S.shaIndex=r.content.sha;
+      S.original=JSON.stringify(S.data); S.dirty=false; clean();
+      status("live","Published");
+      message("ok","Published. Give it a minute, then refresh your website to see the change.");
+    })
+    .catch(function(e){
+      $("save").disabled=false; $("revert").disabled=false;
+      status("bad","Not published");
+      if(e.status===409) message("bad","Someone else changed the site while you were editing. Reload this page and redo your change.");
+      else message("bad","Couldn't publish: "+e.message+" — press Save & publish to try again.");
+    });
+}
+
+function revert(){
+  if(!confirm("Undo everything you've changed since the page loaded?")) return;
+  S.data=JSON.parse(S.original); S.dirty=false; showSection(S.section); clean();
+  message("","Changes undone.");
+}
+function touched(){
+  S.dirty=JSON.stringify(S.data)!==S.original;
+  $("save").disabled=!S.dirty; $("revert").disabled=!S.dirty;
+  if(S.dirty){ message("","Unsaved changes."); status("work","Unsaved changes"); }
+}
+function clean(){ $("save").disabled=true; $("revert").disabled=true; }
+window.addEventListener("beforeunload",function(e){ if(S.dirty){ e.preventDefault(); e.returnValue=""; } });
+
+/* ================================================================
+   WHAT THE CLIENT CAN EDIT — rewrite this block for another site
+   ================================================================ */
+var SECTIONS = [
+  { tab:"Stores & hours", title:"Stores and opening hours",
+    blurb:"Change your hours here and the store card, the footer and what Google shows all update together. Update your Google listing to match on the same day.",
+    fields:[
+      { p:"stores", t:"list", labelField:"name", addLabel:"Add a store", min:1, fields:[
+        { p:"name", l:"Store name", t:"text" },
+        { p:"tagline", l:"Short label", t:"text", h:"Small line under the store name, e.g. 'Open seven days'." },
+        { p:"address_lines", l:"Address", t:"strings", h:"One box per line. Suburb, state and postcode go below." },
+        { two:[{p:"suburb",l:"Suburb",t:"text"},{p:"postcode",l:"Postcode",t:"text"}] },
+        { two:[{p:"state",l:"State",t:"select",opts:["NSW","VIC","QLD","SA","WA","TAS","NT","ACT"]},
+               {p:"phone",l:"Phone",t:"text",h:"Write it how you'd say it: (02) 9290 2606"}] },
+        { p:"hours", t:"hours" },
+        { p:"local_copy", l:"About this store", t:"textarea", h:"Parking, who it suits, the streets nearby. Two or three sentences." },
+        { p:"areas_served", l:"Suburbs served", t:"strings", h:"Tells Google where you operate." },
+        { two:[{p:"latitude",l:"Latitude",t:"number",h:"Leave alone unless the store moves."},
+               {p:"longitude",l:"Longitude",t:"number",h:"Leave alone unless the store moves."}] }
+      ]}
+    ]},
+  { tab:"Services", title:"Services",
+    blurb:"Tick “Show first” on one service only — that's the big panel at the top, so give it to whatever earns you the most.",
+    fields:[
+      { p:"services.eyebrow", l:"Small label above the heading", t:"text" },
+      { p:"services.heading", l:"Heading", t:"text" },
+      { p:"services.intro", l:"Intro paragraph", t:"textarea" },
+      { p:"services.entries", t:"list", labelField:"title", addLabel:"Add a service", fields:[
+        { p:"title", l:"Service", t:"text" },
+        { p:"body", l:"Description", t:"textarea", h:"Leave a blank line between paragraphs." },
+        { p:"meta", l:"Highlight line", t:"text", h:"Small line at the bottom of the card." },
+        { p:"image", l:"Photo", t:"image" },
+        { p:"image_alt", l:"Photo description", t:"text", h:"What's in the picture, in a short sentence. Read aloud to blind customers, and how Google understands the image." },
+        { p:"featured", l:"Show first (big panel)", t:"bool" }
+      ]}
+    ]},
+  { tab:"Questions & answers", title:"Questions and answers",
+    blurb:"The most valuable section on the site. When someone asks Google or ChatGPT about a dry cleaner near them, this is what gets quoted. Answer properly in the first sentence, then add a line or two.",
+    fields:[
+      { p:"faq.eyebrow", l:"Small label above the heading", t:"text" },
+      { p:"faq.heading", l:"Heading", t:"text" },
+      { p:"faq.entries", t:"list", labelField:"question", addLabel:"Add a question", fields:[
+        { p:"question", l:"Question", t:"text" },
+        { p:"answer", l:"Answer", t:"textarea", h:"Two to four sentences." }
+      ]}
+    ]},
+  { tab:"Front page", title:"Front page",
+    blurb:"The headline, the promise, the reasons to choose you and the three steps.",
+    fields:[
+      { head:"Top of the page" },
+      { p:"hero.eyebrow", l:"Small label", t:"text" },
+      { p:"hero.headline", l:"Headline", t:"text" },
+      { p:"hero.headline_accent", l:"Headline, second line", t:"text", h:"Shown in brass underneath. Keep your main service and your city in this line." },
+      { p:"hero.lede", l:"Sentence under the headline", t:"textarea" },
+      { p:"hero.cta_label", l:"Button label", t:"text" },
+      { p:"hero.promise", l:"Promise line", t:"textarea" },
+      { p:"hero.image", l:"Main photo", t:"image" },
+      { p:"hero.image_alt", l:"Photo description", t:"text" },
+      { p:"hero.image_caption", l:"Photo caption", t:"text" },
+      { head:"Trust strip" },
+      { p:"trust", t:"list", labelField:"title", addLabel:"Add a point", max:4, fields:[
+        { p:"title", l:"Title", t:"text" },{ p:"note", l:"Note", t:"text" }]},
+      { head:"Why choose us" },
+      { p:"why.eyebrow", l:"Small label", t:"text" },
+      { p:"why.heading", l:"Heading", t:"text" },
+      { p:"why.points", t:"list", labelField:"title", addLabel:"Add a reason", fields:[
+        { p:"title", l:"Title", t:"text" },{ p:"body", l:"Description", t:"textarea" }]},
+      { p:"why.quote", l:"Quote", t:"textarea" },
+      { p:"why.quote_attribution", l:"Who said it", t:"text" },
+      { p:"why.quote_image", l:"Photo", t:"image" },
+      { p:"why.quote_image_alt", l:"Photo description", t:"text" },
+      { head:"How it works" },
+      { p:"steps.eyebrow", l:"Small label", t:"text" },
+      { p:"steps.heading", l:"Heading", t:"text" },
+      { p:"steps.entries", t:"list", labelField:"title", addLabel:"Add a step", fields:[
+        { p:"title", l:"Step", t:"text" },{ p:"body", l:"Description", t:"textarea" }]},
+      { head:"Stores section heading" },
+      { p:"stores_section.eyebrow", l:"Small label", t:"text" },
+      { p:"stores_section.heading", l:"Heading", t:"text" },
+      { p:"stores_section.intro", l:"Intro paragraph", t:"textarea" },
+      { head:"Footer" },
+      { p:"footer.tagline", l:"Tagline", t:"text" }
+    ]},
+  { tab:"Reviews", title:"Reviews",
+    blurb:"Real reviews only, in the customer's own words, and ask them first.",
+    fields:[
+      { p:"reviews.eyebrow", l:"Small label", t:"text" },
+      { p:"reviews.heading", l:"Heading", t:"text" },
+      { p:"reviews.entries", t:"list", labelField:"name", addLabel:"Add a review", fields:[
+        { p:"quote", l:"What they said", t:"textarea" },
+        { p:"name", l:"Name", t:"text", h:"First name and initial is plenty." }]},
+      { p:"reviews.prompt", l:"Text before the review button", t:"text" },
+      { p:"reviews.link_label", l:"Review button label", t:"text" }
+    ]},
+  { tab:"Enquiry form", title:"Enquiry form",
+    blurb:"The wording around the booking form and the services people can choose from.",
+    fields:[
+      { p:"book.eyebrow", l:"Small label", t:"text" },
+      { p:"book.heading", l:"Heading", t:"text" },
+      { p:"book.lede", l:"Sentence under the heading", t:"textarea" },
+      { p:"book.notes", l:"Bullet points", t:"strings" },
+      { p:"book.service_options", l:"Options in the “What do you need?” menu", t:"strings" },
+      { p:"book.button_label", l:"Button label", t:"text" },
+      { p:"book.privacy_line", l:"Privacy line", t:"text" },
+      { p:"book.confirm_heading", l:"Thank-you heading", t:"text" },
+      { p:"book.confirm_body", l:"Thank-you message", t:"textarea", h:"Tell them what happens next, and when." }
+    ]},
+  { tab:"Business details", title:"Business details",
+    blurb:"Your name, phone, email and how the site appears in Google. Your full trading name must match your Google listing exactly.",
+    fields:[
+      { p:"business.name", l:"Short name", t:"text", h:"Shown in the header." },
+      { p:"business.legal_name", l:"Full trading name", t:"text" },
+      { p:"business.descriptor", l:"Line under the name", t:"text" },
+      { two:[{p:"business.established",l:"Year established",t:"text"},
+             {p:"business.head_office_phone",l:"Head office phone",t:"text"}] },
+      { p:"business.email", l:"Email", t:"text" },
+      { p:"business.postal_address", l:"Postal address", t:"text" },
+      { p:"business.accreditation", l:"Membership or accreditation", t:"text" },
+      { head:"How the site appears in Google" },
+      { p:"seo.title", l:"Page title", t:"text", h:"The blue link in Google. Under about 60 characters, and keep your city in it.", count:60 },
+      { p:"seo.description", l:"Description", t:"textarea", h:"The grey text under the link. Around 155 characters.", count:160 }
+    ]},
+  { tab:"Settings", title:"Technical settings",
+    blurb:"Set once at launch. Leave these alone unless you know what they do.",
+    fields:[
+      { p:"seo.site_url", l:"Website address", t:"text" },
+      { p:"settings.ga_measurement_id", l:"Google Analytics ID", t:"text" },
+      { p:"settings.lead_webhook_url", l:"Where enquiries are sent", t:"text" },
+      { p:"settings.search_console_tag", l:"Google Search Console code", t:"text" },
+      { p:"settings.review_link", l:"Google “leave a review” link", t:"text" }
+    ]}
+];
+
+/* ---------------------------------------------------------------- ui */
+function buildNav(){
+  var s=$("side"); s.innerHTML="";
+  SECTIONS.forEach(function(sec,i){
+    var b=el("button",i===S.section?"on":"",sec.tab);
+    b.onclick=function(){ S.section=i; buildNav(); showSection(i); };
+    s.appendChild(b);
+  });
+}
+function showSection(i){
+  var sec=SECTIONS[i],p=$("pane"); p.innerHTML="";
+  p.appendChild(el("h2",null,sec.title));
+  if(sec.blurb) p.appendChild(el("p","blurb",sec.blurb));
+  renderFields(sec.fields,S.data,p);
+  window.scrollTo(0,0);
+}
+function renderFields(specs,obj,parent){ specs.forEach(function(f){ parent.appendChild(renderField(f,obj)); }); }
+
+function renderField(f,obj){
+  if(f.head){
+    var h=el("h3",null,f.head);
+    h.style.cssText="font-size:15px;margin:32px 0 15px;padding-top:17px;border-top:1px solid var(--line)";
+    return h;
+  }
+  if(f.two){
+    var r=el("div","two"); f.two.forEach(function(s){ r.appendChild(renderField(s,obj)); });
+    var w=el("div","fld"); w.appendChild(r); return w;
+  }
+  if(f.t==="list") return listField(f,obj);
+  if(f.t==="hours") return hoursField(f,obj);
+  if(f.t==="strings") return stringsField(f,obj);
+  if(f.t==="image") return imageField(f,obj);
+  return simpleField(f,obj);
+}
+function labelBlock(f){
+  var w=el("div","fld");
+  if(f.l) w.appendChild(el("label",null,f.l));
+  if(f.h) w.appendChild(el("p","hint",f.h));
+  return w;
+}
+function simpleField(f,obj){
+  var w=labelBlock(f), v=get(obj,f.p), input;
+  if(f.t==="textarea"){ input=el("textarea"); input.value=v==null?"":v; }
+  else if(f.t==="select"){ input=el("select");
+    f.opts.forEach(function(o){ var op=el("option",null,o); op.value=o; input.appendChild(op); });
+    input.value=v==null?"":v; }
+  else if(f.t==="bool"){
+    var lab=el("label","check"); input=el("input"); input.type="checkbox"; input.checked=!!v;
+    lab.appendChild(input); lab.appendChild(document.createTextNode(f.l||""));
+    w.innerHTML=""; if(f.h) w.appendChild(el("p","hint",f.h)); w.appendChild(lab);
+    input.onchange=function(){ set(obj,f.p,input.checked); touched(); };
+    return w; }
+  else if(f.t==="number"){ input=el("input"); input.type="number"; input.step="any"; input.value=v==null?"":v; }
+  else { input=el("input"); input.type="text"; input.value=v==null?"":v; }
+
+  if(f.l) w.querySelector("label").htmlFor = input.id="f"+Math.random().toString(36).slice(2,9);
+  var counter;
+  if(f.count){ counter=el("p","hint"); counter.style.marginTop="6px"; w.appendChild(counter); }
+  function recount(){
+    if(!counter) return;
+    var n=input.value.length;
+    counter.textContent=n+" characters"+(n>f.count?" — longer than Google usually shows":"");
+    counter.style.color=n>f.count?"var(--bad)":"var(--slate)";
+  }
+  input.oninput=input.onchange=function(){
+    var val=input.value;
+    if(f.t==="number") val = val===""?null:parseFloat(val);
+    set(obj,f.p,val); recount(); touched();
+  };
+  w.insertBefore(input,counter||null); recount();
+  return w;
+}
+function stringsField(f,obj){
+  var w=labelBlock(f), box=el("div","strs");
+  var arr=get(obj,f.p); if(!Array.isArray(arr)){ arr=[]; set(obj,f.p,arr); }
+  function draw(){
+    box.innerHTML="";
+    arr.forEach(function(v,i){
+      var r=el("div","r"),inp=el("input");
+      inp.type="text"; inp.value=v==null?"":v;
+      inp.oninput=function(){ arr[i]=inp.value; touched(); };
+      var del=el("button","btn danger sm","Remove"); del.type="button";
+      del.onclick=function(){ arr.splice(i,1); draw(); touched(); };
+      r.appendChild(inp); r.appendChild(del); box.appendChild(r);
+    });
+    var add=el("button","btn ghost sm","Add another"); add.type="button";
+    add.style.justifySelf="start";
+    add.onclick=function(){ arr.push(""); draw(); touched(); };
+    box.appendChild(add);
+  }
+  draw(); w.appendChild(box); return w;
+}
+function listField(f,obj){
+  var w=el("div","fld");
+  if(f.l) w.appendChild(el("label","lbl",f.l));
+  var box=el("div"); w.appendChild(box);
+  var arr=get(obj,f.p); if(!Array.isArray(arr)){ arr=[]; set(obj,f.p,arr); }
+  function blank(){
+    var o={};
+    (function walk(sp){ sp.forEach(function(s){
+      if(s.two) return walk(s.two);
+      if(!s.p) return;
+      o[s.p]= s.t==="list"||s.t==="strings" ? [] : s.t==="bool" ? false : s.t==="number" ? null
+        : s.t==="hours" ? DAYS.map(function(d){return {day:d,closed:false,open:"09:00",close:"17:00"}}) : "";
+    })})(f.fields);
+    return o;
+  }
+  function draw(){
+    box.innerHTML="";
+    arr.forEach(function(item,i){
+      var det=el("details","item"), sum=el("summary");
+      sum.appendChild(el("span",null,item[f.labelField]||"Untitled"));
+      var tools=el("div","rowtools");
+      function mover(label,delta,title){
+        var b=el("button","btn ghost sm",label); b.type="button"; b.title=title;
+        b.onclick=function(ev){ ev.preventDefault(); ev.stopPropagation();
+          arr.splice(i+delta,0,arr.splice(i,1)[0]); draw(); touched(); };
+        return b;
+      }
+      if(i>0) tools.appendChild(mover("\u2191",-1,"Move up"));
+      if(i<arr.length-1) tools.appendChild(mover("\u2193",1,"Move down"));
+      if(arr.length>(f.min||0)){
+        var rm=el("button","btn danger sm","Remove"); rm.type="button";
+        rm.onclick=function(ev){ ev.preventDefault(); ev.stopPropagation();
+          if(!confirm('Remove "'+(item[f.labelField]||"this")+'"? It disappears from the website when you publish.')) return;
+          arr.splice(i,1); draw(); touched(); };
+        tools.appendChild(rm);
+      }
+      sum.appendChild(tools); det.appendChild(sum);
+      var inner=el("div","inner"); renderFields(f.fields,item,inner); det.appendChild(inner);
+      box.appendChild(det);
+    });
+    if(!f.max||arr.length<f.max){
+      var add=el("button","btn ghost sm",f.addLabel||"Add"); add.type="button";
+      add.onclick=function(){ arr.push(blank()); draw(); touched(); };
+      box.appendChild(add);
+    }
+  }
+  draw(); return w;
+}
+function hoursField(f,obj){
+  var w=el("div","fld");
+  w.appendChild(el("label",null,"Trading hours"));
+  w.appendChild(el("p","hint","24-hour clock — 07:30 is half past seven in the morning, 18:00 is six at night."));
+  var rows=get(obj,f.p);
+  if(!Array.isArray(rows)||rows.length!==7){
+    rows=DAYS.map(function(d){return {day:d,closed:false,open:"09:00",close:"17:00"}});
+    set(obj,f.p,rows);
+  }
+  var box=el("div","hrs");
+  rows.forEach(function(r){
+    var row=el("div","row"+(r.closed?" off":""));
+    row.appendChild(el("span","day",SHORT[r.day]||r.day));
+    var times=el("div","times");
+    var o=el("input"); o.type="time"; o.value=r.open||""; o.setAttribute("aria-label",r.day+" opening time");
+    var c=el("input"); c.type="time"; c.value=r.close||""; c.setAttribute("aria-label",r.day+" closing time");
+    o.onchange=function(){ r.open=o.value; touched(); };
+    c.onchange=function(){ r.close=c.value; touched(); };
+    var shut=el("label","shut"), cb=el("input"); cb.type="checkbox"; cb.checked=!!r.closed;
+    cb.onchange=function(){ r.closed=cb.checked; row.className="row"+(cb.checked?" off":""); touched(); };
+    shut.appendChild(cb); shut.appendChild(document.createTextNode("Closed"));
+    times.appendChild(o); times.appendChild(el("span","sep","to")); times.appendChild(c); times.appendChild(shut);
+    row.appendChild(times); box.appendChild(row);
+  });
+  w.appendChild(box); return w;
+}
+function imageField(f,obj){
+  var w=labelBlock(f), wrap=el("div","img");
+  var thumb=el("img","thumb"); thumb.alt="";
+  var side=el("div","side2"), name=el("p","name");
+  var file=el("input"); file.type="file"; file.accept="image/*"; file.style.display="none";
+  var pick=el("button","btn ghost sm","Upload a photo"); pick.type="button";
+  var clear=el("button","btn danger sm","Remove"); clear.type="button"; clear.style.marginLeft="8px";
+  var note=el("p","hint"); note.style.margin="9px 0 0";
+  function paint(){
+    var v=get(obj,f.p)||"";
+    name.textContent=v||"No photo yet";
+    if(v){ thumb.src="https://raw.githubusercontent.com/"+CONFIG.owner+"/"+CONFIG.repo+"/"+CONFIG.branch+"/"+v;
+      thumb.style.display=""; }
+    else { thumb.removeAttribute("src"); thumb.style.display="none"; }
+  }
+  pick.onclick=function(){ file.click(); };
+  clear.onclick=function(){ set(obj,f.p,""); paint(); touched(); };
+  file.onchange=function(){
+    var fl=file.files&&file.files[0]; if(!fl) return;
+    note.textContent="Resizing…"; note.style.color="var(--slate)";
+    shrink(fl,1600,0.82).then(function(b64){
+      var stem=fl.name.replace(/\.[^.]+$/,"").toLowerCase().replace(/[^a-z0-9]+/g,"-")
+                 .replace(/^-|-$/g,"").slice(0,40)||"photo";
+      var path="images/"+stem+"-"+Date.now().toString(36)+".jpg";
+      note.textContent="Uploading…";
+      return put(path,null,null,"Photo upload",b64).then(function(){
+        set(obj,f.p,path); paint(); touched();
+        note.textContent="Uploaded. It appears on the site once you publish.";
+        note.style.color="var(--ok)";
+      });
+    }).catch(function(e){ note.textContent="Upload failed: "+e.message; note.style.color="var(--bad)"; });
+    file.value="";
+  };
+  side.appendChild(name); side.appendChild(pick); side.appendChild(clear);
+  side.appendChild(note); side.appendChild(file);
+  wrap.appendChild(thumb); wrap.appendChild(side); w.appendChild(wrap); paint();
+  return w;
+}
+function shrink(f,maxW,q){
+  return new Promise(function(res,rej){
+    var img=new Image(), url=URL.createObjectURL(f);
+    img.onload=function(){
+      URL.revokeObjectURL(url);
+      var w=img.width,h=img.height;
+      if(w>maxW){ h=Math.round(h*maxW/w); w=maxW; }
+      var cv=document.createElement("canvas"); cv.width=w; cv.height=h;
+      cv.getContext("2d").drawImage(img,0,0,w,h);
+      res(cv.toDataURL("image/jpeg",q).split(",")[1]);
+    };
+    img.onerror=function(){ URL.revokeObjectURL(url); rej(new Error("that file isn't an image we can read")); };
+    img.src=url;
+  });
+}
+
+/* put() also handles pre-encoded binary (photo uploads) */
+var _put = put;
+put = function(path,text,sha,msg,rawB64){
+  var body={ message:msg, content: rawB64!=null ? rawB64 : b64e(text), branch:CONFIG.branch };
+  if(sha) body.sha=sha;
+  return api("/contents/"+path,{method:"PUT",body:body});
+};
+
+/* ---------------------------------------------------------------- boot */
+$("signin").onclick=signIn;
+$("tok").addEventListener("keydown",function(e){ if(e.key==="Enter") signIn(); });
+$("save").onclick=publish;
+$("revert").onclick=revert;
+$("out").onclick=signOut;
+$("repoName").textContent=CONFIG.owner+"/"+CONFIG.repo;
+
+(function(){
+  var saved="";
+  try{ saved=localStorage.getItem(KEY)||sessionStorage.getItem(KEY)||""; }catch(e){}
+  if(saved){ S.token=saved; $("gate").style.display="none"; $("app").classList.add("on"); load(); }
+})();
+</script>
+</body>
+</html>

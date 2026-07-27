@@ -1,0 +1,510 @@
+{
+  "seo": {
+    "title": "Dry Cleaning & Alterations in Sydney | Silver Service",
+    "description": "Dry cleaning, tailoring and curtain cleaning across Sydney since 2001. Four stores, pick-up and delivery, and 24-hour collection at Zetland.",
+    "site_url": "SITE_URL",
+    "share_image": "images/hero-pressed.webp"
+  },
+  "settings": {
+    "ga_measurement_id": "GA_MEASUREMENT_ID",
+    "lead_webhook_url": "LEAD_WEBHOOK_URL",
+    "search_console_tag": "",
+    "review_link": "REVIEW_LINK"
+  },
+  "business": {
+    "name": "Silver Service",
+    "legal_name": "Silver Service Dry Cleaners & Tailors",
+    "descriptor": "Dry Cleaners & Tailors",
+    "established": "2001",
+    "head_office_phone": "(02) 9817 3557",
+    "email": "info@silverservicedrycleaners.com.au",
+    "postal_address": "PO Box 266, Ryde NSW 1680",
+    "accreditation": "Member, Drycleaning Institute of Australia"
+  },
+  "hero": {
+    "eyebrow": "Sydney · Since 2001",
+    "headline": "Drop it and go.",
+    "headline_accent": "Dry cleaning and tailoring across Sydney.",
+    "lede": "Four stores, pick-up and delivery, and 24-hour collection at Zetland. Your clothes fit back around your day instead of taking a piece out of it.",
+    "cta_label": "Book a pickup",
+    "promise": "Every item is cleaned, pressed and packed by the safest method for its fabric — guaranteed in writing by our director.",
+    "image": "images/hero-pressed.webp",
+    "image_alt": "Deep navy fabric falling in soft folds with one sharply pressed crease catching the light",
+    "image_caption": "Pressed in-house"
+  },
+  "trust": [
+    {
+      "title": "Since 2001",
+      "note": "Twenty-five years, from one shop in Top Ryde to four Sydney stores"
+    },
+    {
+      "title": "DIA member",
+      "note": "Members of the Drycleaning Institute of Australia"
+    },
+    {
+      "title": "Written guarantee",
+      "note": "Signed by our director, Vivian Samaha"
+    },
+    {
+      "title": "Cleaned in-house",
+      "note": "Hydrocarbon, wet cleaning and hand finishing under our own roof"
+    }
+  ],
+  "services": {
+    "eyebrow": "What we do",
+    "heading": "The things people can’t afford to get wrong",
+    "intro": "A wedding gown, a set of curtains, a uniform roster or a suit that has to be right on Monday. Twenty-five years of doing exactly this, in our own plant, with our own people.",
+    "entries": [
+      {
+        "title": "Wedding gowns, eveningwear and delicates",
+        "body": "Cleaning, restoration and preservation through our bridal arm, Bridal Silver Service — more than twenty years in this one specialty. Sydney and Melbourne designers send us their clients, and their own sample garments. Beading, crystals and sequins are handled by hand where the fabric asks for it.\n\nComplimentary pick-up and drop-off across most of Sydney, including collection from your honeymoon hotel, so the gown is sorted before you fly out.",
+        "meta": "Free pick-up & drop-off · Workmanship guaranteed",
+        "image": "images/service-bridal.webp",
+        "image_alt": "Ivory-toned folds of a fine gown fabric lit from one side",
+        "featured": true
+      },
+      {
+        "title": "Curtains and window furnishings",
+        "body": "Dust, mould, allergens and dust mites live in the fabric you paid a small fortune for. We take them down dirty and bring them back in two days, with hook replacement and basic repairs handled while they’re with us. Worth doing every couple of years.",
+        "meta": "48-hour turnaround · Pick-up & delivery",
+        "image": "images/service-curtains.webp",
+        "image_alt": "Long vertical pleats of curtain fabric in deep navy",
+        "featured": false
+      },
+      {
+        "title": "Business shirts and corporate uniforms",
+        "body": "Shirts washed and pressed properly, so there’s always a clean one on the rail. For teams, we’ll build a valet run that collects, cleans, presses and returns uniforms on a schedule you set once and then forget about. Ask whether your business qualifies for our corporate rate.",
+        "meta": "Scheduled valet service · Corporate rates",
+        "image": "images/service-corporate.webp",
+        "image_alt": "Crisp diagonal fold of shirting fabric with a brass line of light",
+        "featured": false
+      },
+      {
+        "title": "Alterations and tailoring",
+        "body": "We are tailors as well as cleaners. Hems up or down, zips, buttons, taking in and letting out, hem tape, hand stitching, knitwear repairs, beading and crystal work, and repairs to leather and suede. Bridal alterations too.",
+        "meta": "In every store · Fitted, not guessed",
+        "image": "images/service-alterations.webp",
+        "image_alt": "Tailored fabric folded to a sharp seam against a dark ground",
+        "featured": false
+      },
+      {
+        "title": "Everyday dry cleaning",
+        "body": "Suits, business wear, eveningwear, silk, linen and cashmere, leather, suede and fur, ski wear and racing suits. Care labels are read and followed — and where a label and a fabric disagree, we go with what’s safest for the garment.",
+        "meta": "All four stores",
+        "image": "",
+        "image_alt": "",
+        "featured": false
+      },
+      {
+        "title": "Bag wash, bedding and table linen",
+        "body": "Our bag wash is bulk washing, drying and folding with a machine given over to your bag alone — drop it in before work and collect it at the end of the day. We also press bedding and starch table linen to restaurant standard.",
+        "meta": "Same-machine bag wash · Linen pressing",
+        "image": "",
+        "image_alt": "",
+        "featured": false
+      }
+    ]
+  },
+  "why": {
+    "eyebrow": "Why Silver Service",
+    "heading": "Built around the hour you don’t have",
+    "points": [
+      {
+        "title": "The VIP bag: no queue, no counter",
+        "body": "Join the VIP program, pick up a $10 weatherproof express bag and after that it’s drop and go. Hand the bag over, tell a staff member when you need it, and we process the order, apply any current discount, charge the card on file and text you when it’s ready."
+      },
+      {
+        "title": "24-hour collection at Zetland",
+        "body": "Our East Village store has a garment ATM, so drop-off and collection aren’t limited to trading hours. Handy if your day starts before we open and finishes after we close."
+      },
+      {
+        "title": "Cleaning chosen for the fabric, not the machine",
+        "body": "Hydrocarbon cleaning is water-free, so nothing shrinks and colours hold. Wet cleaning uses biodegradable detergent with computer-controlled drying and finishing, far gentler than a domestic wash. The most delicate pieces are cleaned by hand. We also run on solar and recycle our water and hangers."
+      },
+      {
+        "title": "A guarantee that’s honest about stains",
+        "body": "Your garments and furnishings will not be damaged by our process — that’s in writing. What we won’t promise is that every stain lifts. We’ll keep working on one for as long as there’s a safe way to improve it, and we’ll tell you straight when there isn’t."
+      }
+    ],
+    "quote": "It all makes a difference to our children and families.",
+    "quote_attribution": "Vivian Samaha — Director & founder, trading since 2001",
+    "quote_image": "images/craft-inhouse.webp",
+    "quote_image_alt": "Navy fabric under a single brass line of light on the pressing table"
+  },
+  "steps": {
+    "eyebrow": "How it works",
+    "heading": "Three steps, one text message",
+    "entries": [
+      {
+        "title": "Book a pickup or drop in",
+        "body": "Send the form below and we’ll call to lock in a time, or walk into any of the four stores. Curtains and uniform runs are quoted before we start."
+      },
+      {
+        "title": "We clean it the way the fabric asks",
+        "body": "Hydrocarbon, wet cleaning or by hand — chosen per garment, done in-house, then pressed and packed."
+      },
+      {
+        "title": "You get a text when it’s ready",
+        "body": "Collect from the store, use the 24-hour garment ATM at Zetland, or have it delivered back if you’re on a pick-up and delivery run."
+      }
+    ]
+  },
+  "reviews": {
+    "eyebrow": "In their words",
+    "heading": "What customers actually mention",
+    "entries": [
+      {
+        "quote": "They collect from my work and bring it back, which means one less errand at the end of a long day.",
+        "name": "Jessica T."
+      },
+      {
+        "quote": "Booking online and having it collected from our building’s concierge desk could not be easier.",
+        "name": "Jenny G."
+      },
+      {
+        "quote": "Quick turnaround and the best price I could find. It saves me time and money both.",
+        "name": "Anthony P."
+      }
+    ],
+    "prompt": "Been in lately?",
+    "link_label": "Leave us a Google review"
+  },
+  "stores_section": {
+    "eyebrow": "Four Sydney stores",
+    "heading": "Find your local counter",
+    "intro": "Each store has its own team, its own phone number and its own parking story. Alterations and everyday cleaning are available at all four."
+  },
+  "stores": [
+    {
+      "name": "Barangaroo",
+      "tagline": "The office run",
+      "suburb": "Barangaroo",
+      "state": "NSW",
+      "postcode": "2000",
+      "phone": "(02) 9290 2606",
+      "latitude": -33.864523,
+      "longitude": 151.200265,
+      "local_copy": "Doors open at half seven, so a suit can be dropped before the first meeting and collected on the way home. Convenient for Barangaroo, Wynyard, Walsh Bay, Millers Point and The Rocks.",
+      "areas_served": [
+        "Barangaroo",
+        "Wynyard",
+        "Millers Point",
+        "Walsh Bay",
+        "The Rocks",
+        "Sydney CBD"
+      ],
+      "hours": [
+        {
+          "day": "Monday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Tuesday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Wednesday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Thursday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Friday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Saturday",
+          "closed": true,
+          "open": "",
+          "close": ""
+        },
+        {
+          "day": "Sunday",
+          "closed": true,
+          "open": "",
+          "close": ""
+        }
+      ],
+      "address_lines": [
+        "Shop T2-17, Tower 2 Retail",
+        "Scotch Row, 200 Barangaroo Ave"
+      ]
+    },
+    {
+      "name": "Drummoyne",
+      "tagline": "Saturday trading",
+      "suburb": "Drummoyne",
+      "state": "NSW",
+      "postcode": "2047",
+      "phone": "(02) 9181 5111",
+      "latitude": -33.85095,
+      "longitude": 151.151702,
+      "local_copy": "Park in the Marlborough Street open-air carpark — the shopfront faces the carpark, near the IGA, so it’s a short walk with an armful of curtains. Serving Drummoyne, Russell Lea, Rodd Point and Five Dock.",
+      "areas_served": [
+        "Drummoyne",
+        "Russell Lea",
+        "Rodd Point",
+        "Five Dock",
+        "Birchgrove"
+      ],
+      "hours": [
+        {
+          "day": "Monday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Tuesday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Wednesday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Thursday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Friday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Saturday",
+          "closed": false,
+          "open": "08:30",
+          "close": "16:00"
+        },
+        {
+          "day": "Sunday",
+          "closed": true,
+          "open": "",
+          "close": ""
+        }
+      ],
+      "address_lines": [
+        "Shop 15, Odeon Building",
+        "50 Lyons Rd"
+      ]
+    },
+    {
+      "name": "West Ryde",
+      "tagline": "Where it started",
+      "suburb": "West Ryde",
+      "state": "NSW",
+      "postcode": "2114",
+      "phone": "(02) 9808 4488",
+      "latitude": -33.806346,
+      "longitude": 151.086169,
+      "local_copy": "The business began with one small shop in Top Ryde in 2001, and this is still home ground. Park in the Marketplace carpark. Serving West Ryde, Meadowbank, Denistone, Ryde and Eastwood.",
+      "areas_served": [
+        "West Ryde",
+        "Meadowbank",
+        "Denistone",
+        "Ryde",
+        "Eastwood"
+      ],
+      "hours": [
+        {
+          "day": "Monday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Tuesday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Wednesday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Thursday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Friday",
+          "closed": false,
+          "open": "07:30",
+          "close": "18:00"
+        },
+        {
+          "day": "Saturday",
+          "closed": false,
+          "open": "08:00",
+          "close": "16:00"
+        },
+        {
+          "day": "Sunday",
+          "closed": true,
+          "open": "",
+          "close": ""
+        }
+      ],
+      "address_lines": [
+        "Shop 19, West Ryde Marketplace",
+        "Anthony Rd"
+      ]
+    },
+    {
+      "name": "Zetland",
+      "tagline": "Open seven days · 24-hour ATM",
+      "suburb": "Zetland",
+      "state": "NSW",
+      "postcode": "2017",
+      "phone": "(02) 8599 6006",
+      "latitude": -33.90527,
+      "longitude": 151.2109,
+      "local_copy": "Our garment ATM here runs around the clock, so drop-off and collection aren’t tied to trading hours. Park in the East Village centre carpark. Serving Zetland, Green Square, Waterloo, Rosebery and Alexandria.",
+      "areas_served": [
+        "Zetland",
+        "Green Square",
+        "Waterloo",
+        "Rosebery",
+        "Alexandria"
+      ],
+      "hours": [
+        {
+          "day": "Monday",
+          "closed": false,
+          "open": "08:30",
+          "close": "17:30"
+        },
+        {
+          "day": "Tuesday",
+          "closed": false,
+          "open": "08:30",
+          "close": "17:30"
+        },
+        {
+          "day": "Wednesday",
+          "closed": false,
+          "open": "08:30",
+          "close": "17:30"
+        },
+        {
+          "day": "Thursday",
+          "closed": false,
+          "open": "08:30",
+          "close": "20:00"
+        },
+        {
+          "day": "Friday",
+          "closed": false,
+          "open": "08:30",
+          "close": "17:30"
+        },
+        {
+          "day": "Saturday",
+          "closed": false,
+          "open": "08:30",
+          "close": "17:00"
+        },
+        {
+          "day": "Sunday",
+          "closed": false,
+          "open": "10:00",
+          "close": "17:00"
+        }
+      ],
+      "address_lines": [
+        "Shop 31A, East Village Shopping Centre",
+        "2–4 Defries Ave"
+      ]
+    }
+  ],
+  "faq": {
+    "eyebrow": "Questions we get asked",
+    "heading": "Straight answers",
+    "entries": [
+      {
+        "question": "Where are your Sydney stores and when are you open?",
+        "answer": "We have four stores: Barangaroo, Drummoyne, West Ryde and Zetland. Barangaroo, Drummoyne and West Ryde open at 7:30am on weekdays; Drummoyne and West Ryde also trade Saturday. Zetland is open seven days, with late trading on Thursday, and has a 24-hour garment ATM for after-hours drop-off and collection. Full addresses, phone numbers and hours are listed above."
+      },
+      {
+        "question": "How long does dry cleaning take?",
+        "answer": "It depends on the garment and how busy the store is, so tell us when you need it and we’ll confirm at drop-off. Curtains and window furnishings come back in 48 hours. If something is urgent, ask about our VIP Express service."
+      },
+      {
+        "question": "Can I drop off or collect outside store hours?",
+        "answer": "Yes, at Zetland. The East Village store has a 24-hour garment ATM, so you can drop off and collect whenever it suits you rather than working around trading hours."
+      },
+      {
+        "question": "Do you pick up and deliver?",
+        "answer": "Yes. Curtains and window furnishings are collected and returned across most Sydney suburbs, and bridal work has complimentary pick-up and drop-off across most of Sydney. Businesses can set up a scheduled valet run for uniforms and workwear. Send the form and we’ll confirm whether your address is on a run."
+      },
+      {
+        "question": "Can you clean and preserve a wedding dress after the day?",
+        "answer": "That’s a specialty. Our bridal arm, Bridal Silver Service, has spent more than twenty years cleaning, restoring and preserving bridal and eveningwear, and Sydney and Melbourne designers refer their clients to us. We can collect the gown from your honeymoon hotel so it’s handled before you fly out, and we guarantee our workmanship on the gown and its ornamentation."
+      },
+      {
+        "question": "How often should curtains be cleaned, and how long do they take?",
+        "answer": "About every two years. Left longer, the dirt sets and becomes harder to remove, and over time it damages the fabric. Cleaning takes 48 hours, and we can replace hooks and handle basic repairs while they’re with us. Note that we can’t guarantee rubber backing — sun exposure and age break it down regardless of how gentle the method is."
+      },
+      {
+        "question": "Is your cleaning safe for beaded, sequinned or delicate garments?",
+        "answer": "Yes. Hydrocarbon cleaning is water-free and gentler than traditional solvents, so there’s no shrinkage and no colour fade, and it leaves no odour. Wet cleaning uses biodegradable detergent with computer-controlled finishing. The most delicate pieces are cleaned by hand. We also repair beading and crystals in-house."
+      },
+      {
+        "question": "What happens if a stain won’t come out?",
+        "answer": "We’ll keep working on it for as long as there’s a safe way to improve the item, and we’ll tell you honestly when there isn’t. Our guarantee is that your garments and furnishings won’t be damaged by our process — we won’t promise every stain lifts, because no cleaner can."
+      },
+      {
+        "question": "Do you do alterations as well as cleaning?",
+        "answer": "We do — we’re tailors as well as dry cleaners. Hems, zips, buttons, taking in and letting out, hem tape, hand stitching, knitwear repairs, beading and crystal repair, leather and suede repairs, and bridal alterations. Bring the garment in and we’ll fit it properly rather than guessing."
+      }
+    ]
+  },
+  "book": {
+    "eyebrow": "Book a pickup",
+    "heading": "Tell us what needs doing",
+    "lede": "Five quick details and we’ll call you back to confirm a time and a price. No obligation.",
+    "notes": [
+      "Curtains, uniforms and bridal are quoted before we start"
+    ],
+    "service_options": [
+      "Wedding gown or eveningwear",
+      "Curtains or window furnishings",
+      "Business shirts or corporate uniforms",
+      "Alterations or tailoring",
+      "Everyday dry cleaning",
+      "Bag wash, bedding or table linen",
+      "Something else"
+    ],
+    "button_label": "Book my pickup",
+    "privacy_line": "We only use these details to answer your enquiry.",
+    "confirm_heading": "Got it — thank you.",
+    "confirm_body": "We’ll call you back to confirm a time and a price. Our stores open at 7:30am on weekdays, so if you’ve sent this overnight you’ll hear from us in the morning."
+  },
+  "footer": {
+    "tagline": "Cleaning and tailoring in Sydney since 2001"
+  }
+}
