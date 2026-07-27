@@ -28,7 +28,7 @@
     "lede": "Four stores, pick-up and delivery, and 24-hour collection at Zetland. Your clothes fit back around your day instead of taking a piece out of it.",
     "cta_label": "Book a pickup",
     "promise": "Every item is cleaned, pressed and packed by the safest method for its fabric — guaranteed in writing by our director.",
-    "image": "images/hero-pressed.webp",
+    "image": "images/laundry-ms2tvlh5.jpg",
     "image_alt": "Deep navy fabric falling in soft folds with one sharply pressed crease catching the light",
     "image_caption": "Pressed in-house"
   },
@@ -59,7 +59,7 @@
         "title": "Wedding gowns, eveningwear and delicates",
         "body": "Cleaning, restoration and preservation through our bridal arm, Bridal Silver Service — more than twenty years in this one specialty. Sydney and Melbourne designers send us their clients, and their own sample garments. Beading, crystals and sequins are handled by hand where the fabric asks for it.\n\nComplimentary pick-up and drop-off across most of Sydney, including collection from your honeymoon hotel, so the gown is sorted before you fly out.",
         "meta": "Free pick-up & drop-off · Workmanship guaranteed",
-        "image": "images/laundry-ms2ttry8.jpg",
+        "image": "images/wedding-ms2tx352.jpg",
         "image_alt": "Ivory-toned folds of a fine gown fabric lit from one side",
         "featured": true
       },
@@ -67,7 +67,7 @@
         "title": "Curtains and window furnishings",
         "body": "Dust, mould, allergens and dust mites live in the fabric you paid a small fortune for. We take them down dirty and bring them back in two days, with hook replacement and basic repairs handled while they’re with us. Worth doing every couple of years.",
         "meta": "48-hour turnaround · Pick-up & delivery",
-        "image": "images/service-curtains.webp",
+        "image": "images/curtains-ms2tyl3z.jpg",
         "image_alt": "Long vertical pleats of curtain fabric in deep navy",
         "featured": false
       },
@@ -75,7 +75,7 @@
         "title": "Business shirts and corporate uniforms",
         "body": "Shirts washed and pressed properly, so there’s always a clean one on the rail. For teams, we’ll build a valet run that collects, cleans, presses and returns uniforms on a schedule you set once and then forget about. Ask whether your business qualifies for our corporate rate.",
         "meta": "Scheduled valet service · Corporate rates",
-        "image": "images/service-corporate.webp",
+        "image": "images/business-shirt-ms2u0adh.jpg",
         "image_alt": "Crisp diagonal fold of shirting fabric with a brass line of light",
         "featured": false
       },
@@ -83,7 +83,7 @@
         "title": "Alterations and tailoring",
         "body": "We are tailors as well as cleaners. Hems up or down, zips, buttons, taking in and letting out, hem tape, hand stitching, knitwear repairs, beading and crystal work, and repairs to leather and suede. Bridal alterations too.",
         "meta": "In every store · Fitted, not guessed",
-        "image": "images/service-alterations.webp",
+        "image": "images/repair-ms2u1aj2.jpg",
         "image_alt": "Tailored fabric folded to a sharp seam against a dark ground",
         "featured": false
       },
@@ -91,7 +91,7 @@
         "title": "Everyday dry cleaning",
         "body": "Suits, business wear, eveningwear, silk, linen and cashmere, leather, suede and fur, ski wear and racing suits. Care labels are read and followed — and where a label and a fabric disagree, we go with what’s safest for the garment.",
         "meta": "All four stores",
-        "image": "",
+        "image": "images/dry-cleaning-ms2u2ebg.jpg",
         "image_alt": "",
         "featured": false
       },
@@ -99,7 +99,7 @@
         "title": "Bag wash, bedding and table linen",
         "body": "Our bag wash is bulk washing, drying and folding with a machine given over to your bag alone — drop it in before work and collect it at the end of the day. We also press bedding and starch table linen to restaurant standard.",
         "meta": "Same-machine bag wash · Linen pressing",
-        "image": "",
+        "image": "images/bedding-ms2u3hou.jpg",
         "image_alt": "",
         "featured": false
       }
@@ -128,7 +128,7 @@
     ],
     "quote": "It all makes a difference to our children and families.",
     "quote_attribution": "Vivian Samaha — Director & founder, trading since 2001",
-    "quote_image": "images/craft-inhouse.webp",
+    "quote_image": "images/laundryy-ms2u6hvu.jpg",
     "quote_image_alt": "Navy fabric under a single brass line of light on the pressing table"
   },
   "steps": {
